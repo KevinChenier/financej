@@ -37,14 +37,29 @@
   <properties>
     <project.build.sourceEncoding>UTF8</project.build.sourceEncoding>
   </properties>
+
+  <scm>
+    <url>http://gitlab-ce.logti.etsmtl.ca/guillaume.gillard/financej-team30</url>
+  </scm>
+
+  <issueManagement>
+    <system>Trac</system>
+    <url>http://log240-20201-30.logti.etsmtl.ca/trac/</url>
+  </issueManagement>
+
   <dependencies>
     <dependency>
       <groupId>org.apache.derby</groupId>
       <artifactId>derby</artifactId>
       <version>10.11.1.1</version>
     </dependency>
+    <dependency>
+      <groupId>junit</groupId>
+      <artifactId>junit</artifactId>
+      <version>4.11</version>
+      <scope>test</scope>
+    </dependency>
   </dependencies>
-
 
   <build>
     <pluginManagement><!-- lock down plugins versions to avoid using Maven defaults (may be moved to parent pom) -->
@@ -80,10 +95,6 @@
           <version>2.8.2</version>
         </plugin>
         <!-- site lifecycle, see https://maven.apache.org/ref/current/maven-core/lifecycles.html#site_Lifecycle -->
-        <plugin>
-          <artifactId>maven-site-plugin</artifactId>
-          <version>3.7.1</version>
-        </plugin>
         <plugin>
           <artifactId>maven-project-info-reports-plugin</artifactId>
           <version>3.0.0</version>
@@ -121,12 +132,30 @@
                   <report>project-team</report>
                   <report>plugins</report>
                   <report>summary</report>
+                  <report>issue-tracking</report>
+                  <report>scm</report>
                 </reports>
               </plugin>
               <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-javadoc-plugin</artifactId>
                 <version>2.9.1</version>
+              </plugin>
+              <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-changes-plugin</artifactId>
+                <version>2.10</version>
+                <configuration>
+                  <tracUser>admin</tracUser>
+                  <tracPassword>admin</tracPassword>
+                </configuration>
+                <reportSets>
+                  <reportSet>
+                    <reports>
+                      <report>trac-report</report>
+                    </reports>
+                  </reportSet>
+                </reportSets>
               </plugin>
             </reportPlugins>
           </configuration>
