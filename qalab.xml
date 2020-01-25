@@ -16,5 +16,37 @@
 <!ATTLIST summaryresult type CDATA #REQUIRED>
 ]>
 <qalab version="1.1">
-    <summary/>
+    <summary>
+        <summaryresult date="2020-01-25" filecount="7" statvalue="1521" type="checkstyle"/>
+        <summaryresult date="2020-01-25" filecount="7" statvalue="130" type="pmd"/>
+        <summaryresult date="2020-01-25" filecount="4" statvalue="22" type="pmd-cpd"/>
+    </summary>
+    <file id="ca_etsmtl_log240_financej_App.java" path="ca/etsmtl/log240/financej/App.java">
+        <result date="2020-01-25" statvalue="11" type="checkstyle"/>
+        <result date="2020-01-25" statvalue="1" type="pmd"/>
+    </file>
+    <file id="ca_etsmtl_log240_financej_FinanceJ_financej_Account.java" path="ca/etsmtl/log240/financej/FinanceJ/financej/Account.java">
+        <result date="2020-01-25" statvalue="506" type="checkstyle"/>
+        <result date="2020-01-25" statvalue="17" type="pmd"/>
+    </file>
+    <file id="ca_etsmtl_log240_financej_FinanceJ_financej_Category.java" path="ca/etsmtl/log240/financej/FinanceJ/financej/Category.java">
+        <result date="2020-01-25" statvalue="177" type="checkstyle"/>
+        <result date="2020-01-25" statvalue="18" type="pmd"/>
+    </file>
+    <file id="ca_etsmtl_log240_financej_FinanceJ_financej_DBUtils.java" path="ca/etsmtl/log240/financej/FinanceJ/financej/DBUtils.java">
+        <result date="2020-01-25" statvalue="44" type="checkstyle"/>
+        <result date="2020-01-25" statvalue="19" type="pmd"/>
+    </file>
+    <file id="ca_etsmtl_log240_financej_FinanceJ_financej_FinanceJ.java" path="ca/etsmtl/log240/financej/FinanceJ/financej/FinanceJ.java">
+        <result date="2020-01-25" statvalue="235" type="checkstyle"/>
+        <result date="2020-01-25" statvalue="26" type="pmd"/>
+    </file>
+    <file id="ca_etsmtl_log240_financej_FinanceJ_financej_Ledger.java" path="ca/etsmtl/log240/financej/FinanceJ/financej/Ledger.java">
+        <result date="2020-01-25" statvalue="349" type="checkstyle"/>
+        <result date="2020-01-25" statvalue="28" type="pmd"/>
+    </file>
+    <file id="ca_etsmtl_log240_financej_FinanceJ_financej_Reports.java" path="ca/etsmtl/log240/financej/FinanceJ/financej/Reports.java">
+        <result date="2020-01-25" statvalue="199" type="checkstyle"/>
+        <result date="2020-01-25" statvalue="21" type="pmd"/>
+    </file>
 </qalab>

@@ -70,6 +70,72 @@
     </dependency>
   </dependencies>
 
+  <reporting>
+    <plugins>
+
+      <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-pmd-plugin</artifactId>
+        <version>2.5</version>
+        <configuration>
+          <sourceEncoding>UTF-8</sourceEncoding>
+          <rulesets><!--Two rule sets that come bundled with PMD -->
+            <ruleset>/rulesets/basic.xml</ruleset>
+            <ruleset>/rulesets/design.xml</ruleset>
+          </rulesets>
+          <reportSets>
+            <reportSet>
+              <reports>
+                <report>pmd</report>
+              </reports>
+            </reportSet>
+          </reportSets>
+        </configuration>
+      </plugin>
+
+        <plugin>
+          <groupId>org.apache.maven.plugins</groupId>
+          <artifactId>maven-javadoc-plugin</artifactId>
+          <configuration>
+            <minmemory>128m</minmemory>
+            <maxmemory>512</maxmemory>
+          </configuration>
+        </plugin>
+
+
+      <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-checkstyle-plugin</artifactId>
+        <version>2.12.1</version>
+      </plugin>
+
+        <plugin>
+          <groupId>net.objectlab</groupId>
+          <artifactId>mvn-qalab-plugin</artifactId>
+          <version>2.2</version>
+          <reportSets>
+            <reportSet>
+              <reports>
+                <report>report-merge-chart</report>
+                <report>report-movers-all</report>
+              </reports>
+            </reportSet>
+          </reportSets>
+          <configuration>
+            <dateOnly>true</dateOnly>
+            <startTimeHoursOffset>0</startTimeHoursOffset>
+          </configuration>
+        </plugin>
+
+      <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-project-info-reports-plugin</artifactId>
+        <version>2.7</version>
+      </plugin>
+
+    </plugins>
+  </reporting>
+
   <build>
     <pluginManagement><!-- lock down plugins versions to avoid using Maven defaults (may be moved to parent pom) -->
       <plugins>
@@ -103,11 +169,6 @@
           <artifactId>maven-deploy-plugin</artifactId>
           <version>2.8.2</version>
         </plugin>
-        <!-- site lifecycle, see https://maven.apache.org/ref/current/maven-core/lifecycles.html#site_Lifecycle -->
-        <plugin>
-          <artifactId>maven-project-info-reports-plugin</artifactId>
-          <version>3.0.0</version>
-        </plugin>
         <plugin>
           <groupId>org.codehaus.mojo</groupId>
           <artifactId>exec-maven-plugin</artifactId>
@@ -135,106 +196,8 @@
               <version>2.10</version>
             </dependency>
           </dependencies>
-          <configuration>
-            <reportPlugins>
-              <plugin>
-                <groupId>org.apache.maven.plugins</groupId>
-                <artifactId>maven-project-info-reports-plugin</artifactId>
-                <version>2.7</version>
-                <reports>
-                  <report>index</report>
-                  <report>dependencies</report>
-                  <report>dependency-convergence</report>
-                  <report>plugin-management</report>
-                  <report>project-team</report>
-                  <report>plugins</report>
-                  <report>summary</report>
-                  <report>issue-tracking</report>
-                  <report>scm</report>
-                </reports>
-              </plugin>
-              <plugin>
-                <groupId>org.apache.maven.plugins</groupId>
-                <artifactId>maven-changes-plugin</artifactId>
-                <version>2.10</version>
-                <configuration>
-                  <tracUser>admin</tracUser>
-                  <tracPassword>admin</tracPassword>
-                </configuration>
-                <reportSets>
-                  <reportSet>
-                    <reports>
-                      <report>trac-report</report>
-                    </reports>
-                  </reportSet>
-                </reportSets>
-              </plugin>
-              <plugin>
-                <groupId>net.objectlab</groupId>
-                <artifactId>mvn-qalab-plugin</artifactId>
-                <version>2.2</version>
-                <configuration>
-                  <reportSets>
-                    <reportSet>
-                      <reports>
-                        <report>report-merge-chart</report>
-                        <report>report-movers-all</report>
-                      </reports>
-                    </reportSet>
-                  </reportSets>
-                </configuration>
-              </plugin>
-              <plugin>
-                <groupId>org.apache.maven.plugins</groupId>
-                <artifactId>maven-checkstyle-plugin</artifactId>
-                <version>2.12.1</version>
-              </plugin>
-              <plugin>
-                <groupId>org.apache.maven.plugins</groupId>
-                <artifactId>maven-pmd-plugin</artifactId>
-                <version>2.5</version>
-                <configuration>
-                  <sourceEncoding>UTF-8</sourceEncoding>
-                  <rulesets><!--Two rule sets that come bundled with PMD -->
-                    <ruleset>/rulesets/basic.xml</ruleset>
-                    <ruleset>/rulesets/design.xml</ruleset>
-                  </rulesets>
-                  <reportSets>
-                    <reportSet>
-                      <reports>
-                        <report>pmd</report>
-                      </reports>
-                    </reportSet>
-                  </reportSets>
-                </configuration>
-              </plugin>
-            </reportPlugins>
-          </configuration>
         </plugin>
-        <plugin>
-          <groupId>org.apache.maven.plugins</groupId>
-          <artifactId>maven-checkstyle-plugin</artifactId>
-          <version>2.12.1</version>
-        </plugin>
-        <plugin>
-          <groupId>org.apache.maven.plugins</groupId>
-          <artifactId>maven-pmd-plugin</artifactId>
-          <version>2.5</version>
-          <configuration>
-            <sourceEncoding>UTF-8</sourceEncoding>
-            <rulesets><!--Two rule sets that come bundled with PMD -->
-              <ruleset>/rulesets/basic.xml</ruleset>
-              <ruleset>/rulesets/design.xml</ruleset>
-            </rulesets>
-            <reportSets>
-              <reportSet>
-                <reports>
-                  <report>pmd</report>
-                </reports>
-              </reportSet>
-            </reportSets>
-          </configuration>
-        </plugin>
+
 
       </plugins>
     </pluginManagement>

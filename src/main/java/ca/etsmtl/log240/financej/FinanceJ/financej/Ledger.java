@@ -428,7 +428,7 @@ public class Ledger extends javax.swing.JDialog {
 
 class LedgerListTableModel extends AbstractTableModel {
 
-    private String[] columnNames = {"id", "Rec", "Date", "Payee", "Description", "Category", "Amount"};
+    final private String[] columnNames = {"id", "Rec", "Date", "Payee", "Description", "Category", "Amount"};
     private Connection conn = null;
     private String AccountSelected;
     private JLabel TotalLabel;
