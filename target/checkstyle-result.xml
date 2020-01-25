@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <checkstyle version="5.7">
-<file name="C:\Users\ap65490\Desktop\lab1\src\main\java\ca\etsmtl\log240\financej\App.java">
+<file name="C:\Users\chloe\Desktop\tp1-240\financej-team30\src\main\java\ca\etsmtl\log240\financej\App.java">
 <error line="0" severity="error" message="Missing package-info.java file." source="com.puppycrawl.tools.checkstyle.checks.javadoc.JavadocPackageCheck"/>
 <error line="7" severity="error" message="Line has trailing spaces." source="com.puppycrawl.tools.checkstyle.checks.regexp.RegexpSinglelineCheck"/>
 <error line="7" column="1" severity="error" message="Utility classes should not have a public or default constructor." source="com.puppycrawl.tools.checkstyle.checks.design.HideUtilityClassConstructorCheck"/>
@@ -13,7 +13,7 @@
 <error line="11" column="28" severity="error" message="&apos;(&apos; is followed by whitespace." source="com.puppycrawl.tools.checkstyle.checks.whitespace.ParenPadCheck"/>
 <error line="11" column="43" severity="error" message="&apos;)&apos; is preceded with whitespace." source="com.puppycrawl.tools.checkstyle.checks.whitespace.ParenPadCheck"/>
 </file>
-<file name="C:\Users\ap65490\Desktop\lab1\src\main\java\ca\etsmtl\log240\financej\FinanceJ\financej\Account.java">
+<file name="C:\Users\chloe\Desktop\tp1-240\financej-team30\src\main\java\ca\etsmtl\log240\financej\FinanceJ\financej\Account.java">
 <error line="0" severity="error" message="Missing package-info.java file." source="com.puppycrawl.tools.checkstyle.checks.javadoc.JavadocPackageCheck"/>
 <error line="8" severity="error" message="Using the &apos;.*&apos; form of import should be avoided - java.sql.*." source="com.puppycrawl.tools.checkstyle.checks.imports.AvoidStarImportCheck"/>
 <error line="9" severity="error" message="Using the &apos;.*&apos; form of import should be avoided - java.util.*." source="com.puppycrawl.tools.checkstyle.checks.imports.AvoidStarImportCheck"/>
@@ -521,7 +521,7 @@
 <error line="369" column="1" severity="error" message="Line contains a tab character." source="com.puppycrawl.tools.checkstyle.checks.whitespace.FileTabCharacterCheck"/>
 <error line="370" column="1" severity="error" message="Line contains a tab character." source="com.puppycrawl.tools.checkstyle.checks.whitespace.FileTabCharacterCheck"/>
 </file>
-<file name="C:\Users\ap65490\Desktop\lab1\src\main\java\ca\etsmtl\log240\financej\FinanceJ\financej\Category.java">
+<file name="C:\Users\chloe\Desktop\tp1-240\financej-team30\src\main\java\ca\etsmtl\log240\financej\FinanceJ\financej\Category.java">
 <error line="8" severity="error" message="Using the &apos;.*&apos; form of import should be avoided - java.sql.*." source="com.puppycrawl.tools.checkstyle.checks.imports.AvoidStarImportCheck"/>
 <error line="9" severity="error" message="Using the &apos;.*&apos; form of import should be avoided - java.util.*." source="com.puppycrawl.tools.checkstyle.checks.imports.AvoidStarImportCheck"/>
 <error line="10" severity="error" message="Using the &apos;.*&apos; form of import should be avoided - javax.swing.table.*." source="com.puppycrawl.tools.checkstyle.checks.imports.AvoidStarImportCheck"/>
@@ -700,7 +700,7 @@
 <error line="375" severity="error" message="Line is longer than 80 characters (found 110)." source="com.puppycrawl.tools.checkstyle.checks.sizes.LineLengthCheck"/>
 <error line="378" column="31" severity="error" message="&apos;3&apos; is a magic number." source="com.puppycrawl.tools.checkstyle.checks.coding.MagicNumberCheck"/>
 </file>
-<file name="C:\Users\ap65490\Desktop\lab1\src\main\java\ca\etsmtl\log240\financej\FinanceJ\financej\DBUtils.java">
+<file name="C:\Users\chloe\Desktop\tp1-240\financej-team30\src\main\java\ca\etsmtl\log240\financej\FinanceJ\financej\DBUtils.java">
 <error line="17" severity="error" message="Line has trailing spaces." source="com.puppycrawl.tools.checkstyle.checks.regexp.RegexpSinglelineCheck"/>
 <error line="20" severity="error" message="Using the &apos;.*&apos; form of import should be avoided - java.io.*." source="com.puppycrawl.tools.checkstyle.checks.imports.AvoidStarImportCheck"/>
 <error line="21" severity="error" message="Using the &apos;.*&apos; form of import should be avoided - java.sql.*." source="com.puppycrawl.tools.checkstyle.checks.imports.AvoidStarImportCheck"/>
@@ -746,7 +746,7 @@
 <error line="148" column="5" severity="error" message="Missing a Javadoc comment." source="com.puppycrawl.tools.checkstyle.checks.javadoc.JavadocMethodCheck"/>
 <error line="148" column="29" severity="error" message="Parameter args should be final." source="com.puppycrawl.tools.checkstyle.checks.FinalParametersCheck"/>
 </file>
-<file name="C:\Users\ap65490\Desktop\lab1\src\main\java\ca\etsmtl\log240\financej\FinanceJ\financej\FinanceJ.java">
+<file name="C:\Users\chloe\Desktop\tp1-240\financej-team30\src\main\java\ca\etsmtl\log240\financej\FinanceJ\financej\FinanceJ.java">
 <error line="9" severity="error" message="Using the &apos;.*&apos; form of import should be avoided - java.sql.*." source="com.puppycrawl.tools.checkstyle.checks.imports.AvoidStarImportCheck"/>
 <error line="10" severity="error" message="Using the &apos;.*&apos; form of import should be avoided - javax.swing.table.*." source="com.puppycrawl.tools.checkstyle.checks.imports.AvoidStarImportCheck"/>
 <error line="11" severity="error" message="Using the &apos;.*&apos; form of import should be avoided - javax.swing.*." source="com.puppycrawl.tools.checkstyle.checks.imports.AvoidStarImportCheck"/>
@@ -983,7 +983,7 @@
 <error line="495" column="35" severity="error" message="Parameter row should be final." source="com.puppycrawl.tools.checkstyle.checks.FinalParametersCheck"/>
 <error line="495" column="44" severity="error" message="Parameter col should be final." source="com.puppycrawl.tools.checkstyle.checks.FinalParametersCheck"/>
 </file>
-<file name="C:\Users\ap65490\Desktop\lab1\src\main\java\ca\etsmtl\log240\financej\FinanceJ\financej\Ledger.java">
+<file name="C:\Users\chloe\Desktop\tp1-240\financej-team30\src\main\java\ca\etsmtl\log240\financej\FinanceJ\financej\Ledger.java">
 <error line="8" severity="error" message="Using the &apos;.*&apos; form of import should be avoided - java.sql.*." source="com.puppycrawl.tools.checkstyle.checks.imports.AvoidStarImportCheck"/>
 <error line="9" severity="error" message="Using the &apos;.*&apos; form of import should be avoided - java.util.*." source="com.puppycrawl.tools.checkstyle.checks.imports.AvoidStarImportCheck"/>
 <error line="10" severity="error" message="Using the &apos;.*&apos; form of import should be avoided - javax.swing.table.*." source="com.puppycrawl.tools.checkstyle.checks.imports.AvoidStarImportCheck"/>
@@ -1333,7 +1333,7 @@
 <error line="685" severity="error" message="Line is longer than 80 characters (found 89)." source="com.puppycrawl.tools.checkstyle.checks.sizes.LineLengthCheck"/>
 <error line="689" severity="error" message="Line is longer than 80 characters (found 99)." source="com.puppycrawl.tools.checkstyle.checks.sizes.LineLengthCheck"/>
 </file>
-<file name="C:\Users\ap65490\Desktop\lab1\src\main\java\ca\etsmtl\log240\financej\FinanceJ\financej\Reports.java">
+<file name="C:\Users\chloe\Desktop\tp1-240\financej-team30\src\main\java\ca\etsmtl\log240\financej\FinanceJ\financej\Reports.java">
 <error line="8" severity="error" message="Using the &apos;.*&apos; form of import should be avoided - java.sql.*." source="com.puppycrawl.tools.checkstyle.checks.imports.AvoidStarImportCheck"/>
 <error line="10" severity="error" message="Using the &apos;.*&apos; form of import should be avoided - java.io.*." source="com.puppycrawl.tools.checkstyle.checks.imports.AvoidStarImportCheck"/>
 <error line="22" column="5" severity="error" message="Missing a Javadoc comment." source="com.puppycrawl.tools.checkstyle.checks.javadoc.JavadocVariableCheck"/>

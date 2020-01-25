@@ -235,21 +235,7 @@
             </reportSets>
           </configuration>
         </plugin>
-        <plugin>
-          <groupId>net.objectlab</groupId>
-          <artifactId>mvn-qalab-plugin</artifactId>
-          <version>2.2</version>
-          <configuration>
-            <reportSets>
-              <reportSet>
-                <reports>
-                  <report>report-merge-chart</report>
-                  <report>report-movers-all</report>
-                </reports>
-              </reportSet>
-            </reportSets>
-          </configuration>
-        </plugin>
+
       </plugins>
     </pluginManagement>
   </build>

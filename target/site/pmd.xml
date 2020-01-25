@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<pmd version="4.2.5" timestamp="2020-01-24T14:40:19.975">
-<file name="C:\Users\ap65490\Desktop\lab1\src\main\java\ca\etsmtl\log240\financej\App.java">
+<pmd version="4.2.5" timestamp="2020-01-25T09:38:48.217">
+<file name="C:\Users\chloe\Desktop\tp1-240\financej-team30\src\main\java\ca\etsmtl\log240\financej\App.java">
 <violation beginline="8" endline="13" begincolumn="1" endcolumn="1" rule="UseSingleton" ruleset="Design Rules" package="ca.etsmtl.log240.financej" class="App" externalInfoUrl="http://pmd.sourceforge.net/rules/design.html#UseSingleton" priority="3">
 All methods are static.  Consider using Singleton instead.  Alternatively, you could add a private constructor or make the class abstract to silence this warning.
 </violation>
 </file>
-<file name="C:\Users\ap65490\Desktop\lab1\src\main\java\ca\etsmtl\log240\financej\FinanceJ\financej\Account.java">
+<file name="C:\Users\chloe\Desktop\tp1-240\financej-team30\src\main\java\ca\etsmtl\log240\financej\FinanceJ\financej\Account.java">
 <violation beginline="19" endline="19" begincolumn="17" endcolumn="39" rule="SingularField" ruleset="Design Rules" package="ca.etsmtl.log240.financej" class="Account" variable="conn" externalInfoUrl="http://pmd.sourceforge.net/rules/design.html#SingularField" priority="3">
 Perhaps 'conn' could be replaced by a local variable.
 </violation>
@@ -58,7 +58,7 @@ Ensure that resources like this Statement object are closed after use
 Ensure that resources like this Statement object are closed after use
 </violation>
 </file>
-<file name="C:\Users\ap65490\Desktop\lab1\src\main\java\ca\etsmtl\log240\financej\FinanceJ\financej\Category.java">
+<file name="C:\Users\chloe\Desktop\tp1-240\financej-team30\src\main\java\ca\etsmtl\log240\financej\FinanceJ\financej\Category.java">
 <violation beginline="19" endline="19" begincolumn="13" endcolumn="35" rule="SingularField" ruleset="Design Rules" package="ca.etsmtl.log240.financej" class="Category" variable="conn" externalInfoUrl="http://pmd.sourceforge.net/rules/design.html#SingularField" priority="3">
 Perhaps 'conn' could be replaced by a local variable.
 </violation>
@@ -114,7 +114,7 @@ Ensure that resources like this Statement object are closed after use
 Ensure that resources like this Statement object are closed after use
 </violation>
 </file>
-<file name="C:\Users\ap65490\Desktop\lab1\src\main\java\ca\etsmtl\log240\financej\FinanceJ\financej\DBUtils.java">
+<file name="C:\Users\chloe\Desktop\tp1-240\financej-team30\src\main\java\ca\etsmtl\log240\financej\FinanceJ\financej\DBUtils.java">
 <violation beginline="23" endline="158" begincolumn="22" endcolumn="1" rule="UseSingleton" ruleset="Design Rules" package="ca.etsmtl.log240.financej" class="DBUtils" externalInfoUrl="http://pmd.sourceforge.net/rules/design.html#UseSingleton" priority="3">
 All methods are static.  Consider using Singleton instead.  Alternatively, you could add a private constructor or make the class abstract to silence this warning.
 </violation>
@@ -173,7 +173,7 @@ Position literals first in String comparisons
 Position literals first in String comparisons
 </violation>
 </file>
-<file name="C:\Users\ap65490\Desktop\lab1\src\main\java\ca\etsmtl\log240\financej\FinanceJ\financej\FinanceJ.java">
+<file name="C:\Users\chloe\Desktop\tp1-240\financej-team30\src\main\java\ca\etsmtl\log240\financej\FinanceJ\financej\FinanceJ.java">
 <violation beginline="26" endline="26" begincolumn="21" endcolumn="33" rule="ImmutableField" ruleset="Design Rules" package="ca.etsmtl.log240.financej" class="FinanceJ" variable="AccountDialog" externalInfoUrl="http://pmd.sourceforge.net/rules/design.html#ImmutableField" priority="3">
 Private field 'AccountDialog' could be made final; it is only initialized in the declaration or constructor.
 </violation>
@@ -253,7 +253,7 @@ Ensure that resources like this ResultSet object are closed after use
 Ensure that resources like this Statement object are closed after use
 </violation>
 </file>
-<file name="C:\Users\ap65490\Desktop\lab1\src\main\java\ca\etsmtl\log240\financej\FinanceJ\financej\Ledger.java">
+<file name="C:\Users\chloe\Desktop\tp1-240\financej-team30\src\main\java\ca\etsmtl\log240\financej\FinanceJ\financej\Ledger.java">
 <violation beginline="23" endline="23" begincolumn="13" endcolumn="39" rule="SingularField" ruleset="Design Rules" package="ca.etsmtl.log240.financej" class="Ledger" variable="CategoryColumn" externalInfoUrl="http://pmd.sourceforge.net/rules/design.html#SingularField" priority="3">
 Perhaps 'CategoryColumn' could be replaced by a local variable.
 </violation>
@@ -342,7 +342,7 @@ Ensure that resources like this ResultSet object are closed after use
 Ensure that resources like this Statement object are closed after use
 </violation>
 </file>
-<file name="C:\Users\ap65490\Desktop\lab1\src\main\java\ca\etsmtl\log240\financej\FinanceJ\financej\Reports.java">
+<file name="C:\Users\chloe\Desktop\tp1-240\financej-team30\src\main\java\ca\etsmtl\log240\financej\FinanceJ\financej\Reports.java">
 <violation beginline="177" endline="177" begincolumn="13" endcolumn="44" rule="SingularField" ruleset="Design Rules" package="ca.etsmtl.log240.financej" class="Reports" variable="CloseButton" externalInfoUrl="http://pmd.sourceforge.net/rules/design.html#SingularField" priority="3">
 Perhaps 'CloseButton' could be replaced by a local variable.
 </violation>
