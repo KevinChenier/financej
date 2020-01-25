@@ -122,7 +122,6 @@
             </reportSet>
           </reportSets>
           <configuration>
-            <dateOnly>true</dateOnly>
             <startTimeHoursOffset>0</startTimeHoursOffset>
           </configuration>
         </plugin>

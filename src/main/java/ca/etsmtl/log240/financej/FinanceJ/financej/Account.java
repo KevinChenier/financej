@@ -39,6 +39,7 @@ public class Account extends javax.swing.JDialog {
 	 */
 	// <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
 	private void initComponents() {
+		javax.swing.JScrollPane jScrollPane1;
 
 		CloseButton = new javax.swing.JButton();
 		jScrollPane1 = new javax.swing.JScrollPane();
@@ -223,7 +224,7 @@ public class Account extends javax.swing.JDialog {
 	private javax.swing.JLabel jLabel1;
 	private javax.swing.JLabel jLabel2;
 	private javax.swing.JPanel jPanel1;
-	private javax.swing.JScrollPane jScrollPane1;
+
 	// End of variables declaration//GEN-END:variables
 }
 
