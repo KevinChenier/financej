@@ -43,14 +43,14 @@ public class FinanceJ extends javax.swing.JFrame {
             System.err.println(e.getMessage());
             System.out.println("\n    >>> Please check your CLASSPATH variable   <<<\n");
         } catch (InstantiationException e) {
-			// TODO Auto-generated catch block
-        	System.out.println("\n    >>> Instantiation Exception   <<<\n");
-			e.printStackTrace();
-		} catch (IllegalAccessException e) {
-			// TODO Auto-generated catch block
-			System.out.println("\n    >>> Illegal Access Exception   <<<\n");
-			e.printStackTrace();
-		}
+            // TODO Auto-generated catch block
+            System.out.println("\n    >>> Instantiation Exception   <<<\n");
+            e.printStackTrace();
+        } catch (IllegalAccessException e) {
+            // TODO Auto-generated catch block
+            System.out.println("\n    >>> Illegal Access Exception   <<<\n");
+            e.printStackTrace();
+        }
     } 
 
     public static void CreateDBConnection() {
