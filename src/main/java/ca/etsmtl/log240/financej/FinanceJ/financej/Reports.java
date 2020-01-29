@@ -125,10 +125,10 @@ public class Reports extends javax.swing.JDialog {
             TransactionAccountReport TransactionReportInstance = new TransactionAccountReport(conn, StartDateTextField.getText(), EndDateTextField.getText());
             TransactionReportInstance.Run();
             if (Desktop.isDesktopSupported()) {
-            	Desktop desktop = Desktop.getDesktop();
-            	if (desktop.isSupported(Desktop.Action.BROWSE)) {
-					desktop.browse(new URI("file:///tmp/report.html"));
-            	}
+                Desktop desktop = Desktop.getDesktop();
+                if (desktop.isSupported(Desktop.Action.BROWSE)) {
+                    desktop.browse(new URI("file:///tmp/report.html"));
+                }
             }
         } catch (Throwable e) {
             e.printStackTrace();
@@ -144,10 +144,10 @@ public class Reports extends javax.swing.JDialog {
             TransactionCategoryReport TransactionReportInstance = new TransactionCategoryReport(conn, StartDateTextField.getText(), EndDateTextField.getText());
             TransactionReportInstance.Run();
             if (Desktop.isDesktopSupported()) {
-            	Desktop desktop = Desktop.getDesktop();
-            	if (desktop.isSupported(Desktop.Action.BROWSE)) {
-					desktop.browse(new URI("file:///tmp/report.html"));
-            	}
+                Desktop desktop = Desktop.getDesktop();
+                if (desktop.isSupported(Desktop.Action.BROWSE)) {
+                    desktop.browse(new URI("file:///tmp/report.html"));
+                }
             }
         } catch (Throwable e) {
             e.printStackTrace();

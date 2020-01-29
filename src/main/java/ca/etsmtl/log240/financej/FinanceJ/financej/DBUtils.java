@@ -20,6 +20,10 @@ under the License.
 import java.io.*;
 import java.sql.*;
 
+/**
+ *
+ * @author  rovitotv
+ */
 public class DBUtils {
 
     /*****************
@@ -43,8 +47,12 @@ public class DBUtils {
         return ans;
     }
 
-    /**  END  getWishItem  ***/
-    /***      Check for  WISH_LIST table    ****/
+    /**
+     *
+     * @param conTst constante
+     * @return true if table exist
+     * @throws SQLException
+     */
     public static boolean wwdChk4Table(Connection conTst) throws SQLException {
         boolean chk = true;
         boolean doCreate = false;

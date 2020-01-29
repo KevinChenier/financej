@@ -290,6 +290,10 @@ public class Ledger extends javax.swing.JDialog {
         setVisible(false);
     }//GEN-LAST:event_CloseButtonActionPerformed
 
+    /**
+     *
+     * @param evt java action event
+     */
     private void AddTransactionButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_AddTransactionButtonActionPerformed
         int ReturnCode;
         String AmountValue;
@@ -331,14 +335,14 @@ public class Ledger extends javax.swing.JDialog {
         
         
         
-        	if (CategoryComboBox.getSelectedItem() == null){
+            if (CategoryComboBox.getSelectedItem() == null){
            System.out.println("...exception thrown: in AddTransactionButtonActionPerformed");
             JOptionPane.showMessageDialog(this,
                     "Error. Category must be created first.",
                     "Error", JOptionPane.ERROR_MESSAGE);
             return;}
-        	
-        	if (AccountsComboBox.getSelectedItem() == null){
+
+            if (AccountsComboBox.getSelectedItem() == null){
                 System.out.println("...exception thrown: in AddTransactionButtonActionPerformed");
                  JOptionPane.showMessageDialog(this,
                          "Error. Account must be created first.",
@@ -364,6 +368,10 @@ public class Ledger extends javax.swing.JDialog {
         }
     }//GEN-LAST:event_AddTransactionButtonActionPerformed
 
+    /**
+     *
+     * @param evt java action event
+     */
     private void DeleteTransactionButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_DeleteTransactionButtonActionPerformed
         if (LedgerTable.getSelectionModel().getLeadSelectionIndex() >= 0) {
             System.out.println("delete row:" + LedgerTable.getSelectionModel().getLeadSelectionIndex());
@@ -375,6 +383,10 @@ public class Ledger extends javax.swing.JDialog {
         }
     }//GEN-LAST:event_DeleteTransactionButtonActionPerformed
 
+    /**
+     *
+     * @param evt java action event
+     */
     private void AccountsComboBoxActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_AccountsComboBoxActionPerformed
         System.out.println("Accounts Combo Box Performed:" + (String) AccountsComboBox.getSelectedItem());
         if ((AccountsComboBox.getSelectedItem() != null) && (dataModel != null)) {
@@ -428,7 +440,7 @@ public class Ledger extends javax.swing.JDialog {
 
 class LedgerListTableModel extends AbstractTableModel {
 
-    private String[] columnNames = {"id", "Rec", "Date", "Payee", "Description", "Category", "Amount"};
+    final private String[] columnNames = {"id", "Rec", "Date", "Payee", "Description", "Category", "Amount"};
     private Connection conn = null;
     private String AccountSelected;
     private JLabel TotalLabel;
