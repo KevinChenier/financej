@@ -3,7 +3,7 @@ package ca.etsmtl.log240.financej;
 import ca.etsmtl.log240.financej.auth.AuthFrame;
 
 /**
- * Hello world!
+ * FinanceJ's main class
  *
  */
 public class App {
