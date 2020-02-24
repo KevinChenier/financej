@@ -9,13 +9,15 @@ import java.sql.*;
 import javax.swing.table.*;
 import javax.swing.*;
 import java.text.SimpleDateFormat;
+import java.awt.*;
+import java.awt.event.*;
 import java.awt.Color;
 
 /**
  *
  * @author  rovitotv
  */
-public class Ledger extends javax.swing.JDialog {
+public class Ledger extends JDialog {
 
     private Connection conn = null;
     private LedgerListTableModel dataModel = null;
@@ -23,7 +25,7 @@ public class Ledger extends javax.swing.JDialog {
     private JComboBox CategoryColumnComboBox;
 
     /** Creates new form Ledger */
-    public Ledger(java.awt.Frame parent, boolean modal) {
+    public Ledger(Frame parent, boolean modal) {
         super(parent, modal);
         initComponents();
         LedgerTable.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
@@ -285,7 +287,7 @@ public class Ledger extends javax.swing.JDialog {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
-    private void CloseButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_CloseButtonActionPerformed
+    private void CloseButtonActionPerformed(ActionEvent evt) {//GEN-FIRST:event_CloseButtonActionPerformed
         setVisible(false);
     }//GEN-LAST:event_CloseButtonActionPerformed
 
@@ -293,7 +295,7 @@ public class Ledger extends javax.swing.JDialog {
      *
      * @param evt java action event
      */
-    private void AddTransactionButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_AddTransactionButtonActionPerformed
+    private void AddTransactionButtonActionPerformed(ActionEvent evt) {//GEN-FIRST:event_AddTransactionButtonActionPerformed
         int ReturnCode;
         String AmountValue;
         float Amount;
@@ -371,7 +373,7 @@ public class Ledger extends javax.swing.JDialog {
      *
      * @param evt java action event
      */
-    private void DeleteTransactionButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_DeleteTransactionButtonActionPerformed
+    private void DeleteTransactionButtonActionPerformed(ActionEvent evt) {//GEN-FIRST:event_DeleteTransactionButtonActionPerformed
         if (LedgerTable.getSelectionModel().getLeadSelectionIndex() >= 0) {
             System.out.println("delete row:" + LedgerTable.getSelectionModel().getLeadSelectionIndex());
             dataModel.DeleteLedger(LedgerTable.getSelectionModel().getLeadSelectionIndex());
@@ -386,7 +388,7 @@ public class Ledger extends javax.swing.JDialog {
      *
      * @param evt java action event
      */
-    private void AccountsComboBoxActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_AccountsComboBoxActionPerformed
+    private void AccountsComboBoxActionPerformed(ActionEvent evt) {//GEN-FIRST:event_AccountsComboBoxActionPerformed
         System.out.println("Accounts Combo Box Performed:" + (String) AccountsComboBox.getSelectedItem());
         if ((AccountsComboBox.getSelectedItem() != null) && (dataModel != null)) {
             dataModel.SetAccountSelected((String) AccountsComboBox.getSelectedItem());
@@ -402,7 +404,7 @@ public class Ledger extends javax.swing.JDialog {
         java.awt.EventQueue.invokeLater(new Runnable() {
 
             public void run() {
-                Ledger dialog = new Ledger(new javax.swing.JFrame(), true);
+                Ledger dialog = new Ledger(new JFrame(), true);
                 dialog.addWindowListener(new java.awt.event.WindowAdapter() {
 
                     public void windowClosing(java.awt.event.WindowEvent e) {
@@ -414,26 +416,26 @@ public class Ledger extends javax.swing.JDialog {
         });
     }
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JComboBox AccountsComboBox;
-    private javax.swing.JButton AddTransactionButton;
-    private javax.swing.JTextField AmountTextField;
-    private javax.swing.JComboBox CategoryComboBox;
-    private javax.swing.JButton CloseButton;
-    private javax.swing.JTextField DateTextField;
-    private javax.swing.JButton DeleteTransactionButton;
-    private javax.swing.JTextField DescriptionTextField;
-    private javax.swing.JTable LedgerTable;
-    private javax.swing.JTextField PayeeTextField;
-    private javax.swing.JCheckBox RecCheckBox;
-    private javax.swing.JLabel TotalLabel;
-    private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel2;
-    private javax.swing.JLabel jLabel3;
-    private javax.swing.JLabel jLabel4;
-    private javax.swing.JLabel jLabel5;
-    private javax.swing.JLabel jLabel6;
-    private javax.swing.JPanel jPanel1;
-    private javax.swing.JScrollPane jScrollPane1;
+    private JComboBox AccountsComboBox;
+    private JButton AddTransactionButton;
+    private JTextField AmountTextField;
+    private JComboBox CategoryComboBox;
+    private JButton CloseButton;
+    private JTextField DateTextField;
+    private JButton DeleteTransactionButton;
+    private JTextField DescriptionTextField;
+    private JTable LedgerTable;
+    private JTextField PayeeTextField;
+    private JCheckBox RecCheckBox;
+    private JLabel TotalLabel;
+    private JLabel jLabel1;
+    private JLabel jLabel2;
+    private JLabel jLabel3;
+    private JLabel jLabel4;
+    private JLabel jLabel5;
+    private JLabel jLabel6;
+    private JPanel jPanel1;
+    private JScrollPane jScrollPane1;
     // End of variables declaration//GEN-END:variables
 }
 

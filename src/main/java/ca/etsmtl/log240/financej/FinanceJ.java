@@ -10,12 +10,13 @@ import java.sql.*;
 import javax.swing.table.*;
 import javax.swing.*;
 import java.awt.Color;
+import java.awt.event.*;
 
 /**
  *
  * @author  rovitotv
  */
-public class FinanceJ extends javax.swing.JFrame {
+public class FinanceJ extends JFrame {
     // define the driver to use 
     private static String driver = "org.apache.derby.jdbc.EmbeddedDriver";
     // the database name  
@@ -331,39 +332,39 @@ public class FinanceJ extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void formWindowClosing(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowClosing
+    private void formWindowClosing(WindowEvent evt) {//GEN-FIRST:event_formWindowClosing
         ShutdownDB();
     }//GEN-LAST:event_formWindowClosing
 
-    private void ExitButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ExitButtonActionPerformed
+    private void ExitButtonActionPerformed(ActionEvent evt) {//GEN-FIRST:event_ExitButtonActionPerformed
        dispose(); 
     }//GEN-LAST:event_ExitButtonActionPerformed
 
-    private void formWindowClosed(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowClosed
+    private void formWindowClosed(WindowEvent evt) {//GEN-FIRST:event_formWindowClosed
         ShutdownDB();
     }//GEN-LAST:event_formWindowClosed
 
-    private void AccountButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_AccountButtonActionPerformed
+    private void AccountButtonActionPerformed(ActionEvent evt) {//GEN-FIRST:event_AccountButtonActionPerformed
         AccountDialog.setVisible(true);
     }//GEN-LAST:event_AccountButtonActionPerformed
 
-    private void CategoriesButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_CategoriesButtonActionPerformed
+    private void CategoriesButtonActionPerformed(ActionEvent evt) {//GEN-FIRST:event_CategoriesButtonActionPerformed
         CategoryDialog.setVisible(true);
     }//GEN-LAST:event_CategoriesButtonActionPerformed
 
-    private void LedgerButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_LedgerButtonActionPerformed
+    private void LedgerButtonActionPerformed(ActionEvent evt) {//GEN-FIRST:event_LedgerButtonActionPerformed
         LedgerDialog.BuildAccountsComboBox();
         LedgerDialog.BuildCategoryComboBox();
         LedgerDialog.setVisible(true);
     }//GEN-LAST:event_LedgerButtonActionPerformed
 
-    private void formWindowActivated(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowActivated
+    private void formWindowActivated(WindowEvent evt) {//GEN-FIRST:event_formWindowActivated
         // refreshes the window
         dataModel.fireTableDataChanged();        
         UpdateTotal();
     }//GEN-LAST:event_formWindowActivated
 
-    private void ReportsButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ReportsButtonActionPerformed
+    private void ReportsButtonActionPerformed(ActionEvent evt) {//GEN-FIRST:event_ReportsButtonActionPerformed
         ReportsDialog.setVisible(true);
 }//GEN-LAST:event_ReportsButtonActionPerformed
     
@@ -379,15 +380,15 @@ public class FinanceJ extends javax.swing.JFrame {
     }
     
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton AccountButton;
-    private javax.swing.JTable AccountTotalTable;
-    private javax.swing.JButton CategoriesButton;
-    private javax.swing.JButton ExitButton;
-    private javax.swing.JButton LedgerButton;
-    private javax.swing.JButton ReportsButton;
-    private javax.swing.JLabel TotalLabel;
-    private javax.swing.JLabel jLabel1;
-    private javax.swing.JScrollPane jScrollPane1;
+    private JButton AccountButton;
+    private JTable AccountTotalTable;
+    private JButton CategoriesButton;
+    private JButton ExitButton;
+    private JButton LedgerButton;
+    private JButton ReportsButton;
+    private JLabel TotalLabel;
+    private JLabel jLabel1;
+    private JScrollPane jScrollPane1;
     // End of variables declaration//GEN-END:variables
 
     //   ## DERBY EXCEPTION REPORTING CLASSES  ## 

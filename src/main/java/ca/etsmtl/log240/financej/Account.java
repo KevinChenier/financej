@@ -5,6 +5,7 @@ package ca.etsmtl.log240.financej;
  * Created on March 5, 2008, 11:08 PM
  */
 
+import java.awt.event.*;
 import java.sql.*;
 import javax.swing.table.*;
 import javax.swing.*;
@@ -13,7 +14,7 @@ import javax.swing.*;
  *
  * @author  rovitotv
  */
-public class Account extends javax.swing.JDialog {
+public class Account extends JDialog {
 
     private Connection conn = null;
     private AccountListTableModel dataModel;
@@ -166,11 +167,11 @@ public class Account extends javax.swing.JDialog {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
-    private void CloseButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_CloseButtonActionPerformed
+    private void CloseButtonActionPerformed(ActionEvent evt) {//GEN-FIRST:event_CloseButtonActionPerformed
         setVisible(false);
     }//GEN-LAST:event_CloseButtonActionPerformed
 
-    private void DeleteAccountButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_DeleteAccountButtonActionPerformed
+    private void DeleteAccountButtonActionPerformed(ActionEvent evt) {//GEN-FIRST:event_DeleteAccountButtonActionPerformed
         if (AccountListTable.getSelectionModel().getLeadSelectionIndex() >= 0) {
             System.out.println("delete row:" + AccountListTable.getSelectionModel().getLeadSelectionIndex());
             dataModel.DeleteAccount(AccountListTable.getSelectionModel().getLeadSelectionIndex());
@@ -181,7 +182,7 @@ public class Account extends javax.swing.JDialog {
         }
     }//GEN-LAST:event_DeleteAccountButtonActionPerformed
 
-    private void AddAccountButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_AddAccountButtonActionPerformed
+    private void AddAccountButtonActionPerformed(ActionEvent evt) {//GEN-FIRST:event_AddAccountButtonActionPerformed
         int ReturnCode;
 
         ReturnCode = dataModel.AddAccount(NameTextField.getText(), DescriptionTextField.getText());
@@ -202,7 +203,7 @@ public class Account extends javax.swing.JDialog {
         java.awt.EventQueue.invokeLater(new Runnable() {
 
             public void run() {
-                Account dialog = new Account(new javax.swing.JFrame(), true);
+                Account dialog = new Account(new JFrame(), true);
                 dialog.addWindowListener(new java.awt.event.WindowAdapter() {
 
                     public void windowClosing(java.awt.event.WindowEvent e) {
@@ -214,15 +215,15 @@ public class Account extends javax.swing.JDialog {
         });
     }
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JTable AccountListTable;
-    private javax.swing.JButton AddAccountButton;
-    private javax.swing.JButton CloseButton;
-    private javax.swing.JButton DeleteAccountButton;
-    private javax.swing.JTextField DescriptionTextField;
-    private javax.swing.JTextField NameTextField;
-    private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel2;
-    private javax.swing.JPanel jPanel1;
+    private JTable AccountListTable;
+    private JButton AddAccountButton;
+    private JButton CloseButton;
+    private JButton DeleteAccountButton;
+    private JTextField DescriptionTextField;
+    private JTextField NameTextField;
+    private JLabel jLabel1;
+    private JLabel jLabel2;
+    private JPanel jPanel1;
 
     // End of variables declaration//GEN-END:variables
 }
