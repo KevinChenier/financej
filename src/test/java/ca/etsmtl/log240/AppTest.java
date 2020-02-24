@@ -1,4 +1,4 @@
-package ca.etsmtl.log240.financej;
+package ca.etsmtl.log240;
 
 import static org.junit.Assert.assertTrue;
 

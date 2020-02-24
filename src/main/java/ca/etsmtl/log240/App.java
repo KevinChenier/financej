@@ -1,6 +1,6 @@
-package ca.etsmtl.log240.financej;
+package ca.etsmtl.log240;
 
-import ca.etsmtl.log240.financej.auth.AuthFrame;
+import ca.etsmtl.log240.auth.AuthFrame;
 
 /**
  * FinanceJ's main class

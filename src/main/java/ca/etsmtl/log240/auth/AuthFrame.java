@@ -1,13 +1,11 @@
-package ca.etsmtl.log240.financej.auth;
+package ca.etsmtl.log240.auth;
 
 import ca.etsmtl.log240.financej.FinanceJ;
 
 import javax.swing.*;
-import javax.swing.border.Border;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.sql.SQLOutput;
 import java.util.Arrays;
 
 public class AuthFrame extends JFrame {
