@@ -6,12 +6,12 @@ package ca.etsmtl.log240.financej;
  */
 
 import java.sql.*;
-
 import java.io.*;
-
+import java.awt.*;
+import java.awt.event.*;
 import java.awt.Desktop;
-
 import java.net.URI;
+import javax.swing.*;
 
 /**
  *
@@ -22,7 +22,7 @@ public class Reports extends javax.swing.JDialog {
     private Connection conn = null;
 
     /** Creates new form Reports */
-    public Reports(java.awt.Frame parent, boolean modal) {
+    public Reports(Frame parent, boolean modal) {
         super(parent, modal);
         initComponents();
     }
@@ -119,7 +119,7 @@ public class Reports extends javax.swing.JDialog {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
-    private void TransactionsByAccountButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_TransactionsByAccountButtonActionPerformed
+    private void TransactionsByAccountButtonActionPerformed(ActionEvent evt) {//GEN-FIRST:event_TransactionsByAccountButtonActionPerformed
         
         try {
             TransactionAccountReport TransactionReportInstance = new TransactionAccountReport(conn, StartDateTextField.getText(), EndDateTextField.getText());
@@ -135,11 +135,11 @@ public class Reports extends javax.swing.JDialog {
         }
     }//GEN-LAST:event_TransactionsByAccountButtonActionPerformed
 
-    private void CloseButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_CloseButtonActionPerformed
+    private void CloseButtonActionPerformed(ActionEvent evt) {//GEN-FIRST:event_CloseButtonActionPerformed
         setVisible(false);
     }//GEN-LAST:event_CloseButtonActionPerformed
 
-    private void TransactionsByCategoryButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_TransactionsByCategoryButtonActionPerformed
+    private void TransactionsByCategoryButtonActionPerformed(ActionEvent evt) {//GEN-FIRST:event_TransactionsByCategoryButtonActionPerformed
         try {
             TransactionCategoryReport TransactionReportInstance = new TransactionCategoryReport(conn, StartDateTextField.getText(), EndDateTextField.getText());
             TransactionReportInstance.Run();
@@ -162,7 +162,7 @@ public class Reports extends javax.swing.JDialog {
         java.awt.EventQueue.invokeLater(new Runnable() {
 
             public void run() {
-                Reports dialog = new Reports(new javax.swing.JFrame(), true);
+                Reports dialog = new Reports(new JFrame(), true);
                 dialog.addWindowListener(new java.awt.event.WindowAdapter() {
 
                     public void windowClosing(java.awt.event.WindowEvent e) {
@@ -174,13 +174,13 @@ public class Reports extends javax.swing.JDialog {
         });
     }
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton CloseButton;
-    private javax.swing.JTextField EndDateTextField;
-    private javax.swing.JTextField StartDateTextField;
-    private javax.swing.JButton TransactionsByAccountButton;
-    private javax.swing.JButton TransactionsByCategoryButton;
-    private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel2;
+    private JButton CloseButton;
+    private JTextField EndDateTextField;
+    private JTextField StartDateTextField;
+    private JButton TransactionsByAccountButton;
+    private JButton TransactionsByCategoryButton;
+    private JLabel jLabel1;
+    private JLabel jLabel2;
     // End of variables declaration//GEN-END:variables
 }
 

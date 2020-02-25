@@ -8,18 +8,20 @@ package ca.etsmtl.log240.financej;
 import java.sql.*;
 import javax.swing.table.*;
 import javax.swing.*;
+import java.awt.*;
+import java.awt.event.*;
 
 /**
  *
  * @author  rovitotv
  */
-public class Category extends javax.swing.JDialog {
+public class Category extends JDialog {
 
     private Connection conn = null;
     private CategoryListTableModel dataModel;
 
     /** Creates new form Category */
-    public Category(java.awt.Frame parent, boolean modal) {
+    public Category(Frame parent, boolean modal) {
         super(parent, modal);
         initComponents();
         CategoryListTable.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
@@ -166,7 +168,7 @@ public class Category extends javax.swing.JDialog {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
-    private void AddCategoryButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_AddCategoryButtonActionPerformed
+    private void AddCategoryButtonActionPerformed(ActionEvent evt) {//GEN-FIRST:event_AddCategoryButtonActionPerformed
         int ReturnCode;
         String BudgetValue;
         float Budget;
@@ -186,11 +188,11 @@ public class Category extends javax.swing.JDialog {
         }
 }//GEN-LAST:event_AddCategoryButtonActionPerformed
 
-    private void CloseButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_CloseButtonActionPerformed
+    private void CloseButtonActionPerformed(ActionEvent evt) {//GEN-FIRST:event_CloseButtonActionPerformed
         setVisible(false);
     }//GEN-LAST:event_CloseButtonActionPerformed
 
-    private void DeleteCategoryButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_DeleteCategoryButtonActionPerformed
+    private void DeleteCategoryButtonActionPerformed(ActionEvent evt) {//GEN-FIRST:event_DeleteCategoryButtonActionPerformed
         if (CategoryListTable.getSelectionModel().getLeadSelectionIndex() >= 0) {
             System.out.println("delete row:" + CategoryListTable.getSelectionModel().getLeadSelectionIndex());
             dataModel.DeleteCategory(CategoryListTable.getSelectionModel().getLeadSelectionIndex());
@@ -208,7 +210,7 @@ public class Category extends javax.swing.JDialog {
         java.awt.EventQueue.invokeLater(new Runnable() {
 
             public void run() {
-                Category dialog = new Category(new javax.swing.JFrame(), true);
+                Category dialog = new Category(new JFrame(), true);
                 dialog.addWindowListener(new java.awt.event.WindowAdapter() {
 
                     public void windowClosing(java.awt.event.WindowEvent e) {
@@ -220,18 +222,18 @@ public class Category extends javax.swing.JDialog {
         });
     }
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton AddCategoryButton;
-    private javax.swing.JTextField BudgetTextField;
-    private javax.swing.JTable CategoryListTable;
-    private javax.swing.JButton CloseButton;
-    private javax.swing.JButton DeleteCategoryButton;
-    private javax.swing.JTextField DescriptionTextField;
-    private javax.swing.JTextField NameTextField;
-    private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel2;
-    private javax.swing.JLabel jLabel3;
-    private javax.swing.JPanel jPanel1;
-    private javax.swing.JScrollPane jScrollPane1;
+    private JButton AddCategoryButton;
+    private JTextField BudgetTextField;
+    private JTable CategoryListTable;
+    private JButton CloseButton;
+    private JButton DeleteCategoryButton;
+    private JTextField DescriptionTextField;
+    private JTextField NameTextField;
+    private JLabel jLabel1;
+    private JLabel jLabel2;
+    private JLabel jLabel3;
+    private JPanel jPanel1;
+    private JScrollPane jScrollPane1;
     // End of variables declaration//GEN-END:variables
 }
 
