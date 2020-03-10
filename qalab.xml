@@ -29,6 +29,9 @@
         <summaryresult date="2020-01-27" filecount="7" statvalue="1146" type="checkstyle"/>
         <summaryresult date="2020-01-27" filecount="7" statvalue="128" type="pmd"/>
         <summaryresult date="2020-01-27" filecount="4" statvalue="22" type="pmd-cpd"/>
+        <summaryresult date="2020-03-10" filecount="8" statvalue="1179" type="checkstyle"/>
+        <summaryresult date="2020-03-10" filecount="8" statvalue="131" type="pmd"/>
+        <summaryresult date="2020-03-10" filecount="4" statvalue="22" type="pmd-cpd"/>
     </summary>
     <file id="ca_etsmtl_log240_financej_App.java" path="ca/etsmtl/log240/financej/App.java">
         <result date="2020-01-23" statvalue="8" type="checkstyle"/>
@@ -99,5 +102,37 @@
         <result date="2020-01-26" statvalue="21" type="pmd"/>
         <result date="2020-01-27" statvalue="189" type="checkstyle"/>
         <result date="2020-01-27" statvalue="21" type="pmd"/>
+    </file>
+    <file id="ca_etsmtl_log240_App.java" path="ca/etsmtl/log240/App.java">
+        <result date="2020-03-10" statvalue="6" type="checkstyle"/>
+        <result date="2020-03-10" statvalue="1" type="pmd"/>
+    </file>
+    <file id="ca_etsmtl_log240_auth_AuthFrame.java" path="ca/etsmtl/log240/auth/AuthFrame.java">
+        <result date="2020-03-10" statvalue="28" type="checkstyle"/>
+        <result date="2020-03-10" statvalue="3" type="pmd"/>
+    </file>
+    <file id="ca_etsmtl_log240_financej_Account.java" path="ca/etsmtl/log240/financej/Account.java">
+        <result date="2020-03-10" statvalue="166" type="checkstyle"/>
+        <result date="2020-03-10" statvalue="16" type="pmd"/>
+    </file>
+    <file id="ca_etsmtl_log240_financej_Category.java" path="ca/etsmtl/log240/financej/Category.java">
+        <result date="2020-03-10" statvalue="177" type="checkstyle"/>
+        <result date="2020-03-10" statvalue="17" type="pmd"/>
+    </file>
+    <file id="ca_etsmtl_log240_financej_DBUtils.java" path="ca/etsmtl/log240/financej/DBUtils.java">
+        <result date="2020-03-10" statvalue="40" type="checkstyle"/>
+        <result date="2020-03-10" statvalue="19" type="pmd"/>
+    </file>
+    <file id="ca_etsmtl_log240_financej_FinanceJ.java" path="ca/etsmtl/log240/financej/FinanceJ.java">
+        <result date="2020-03-10" statvalue="227" type="checkstyle"/>
+        <result date="2020-03-10" statvalue="26" type="pmd"/>
+    </file>
+    <file id="ca_etsmtl_log240_financej_Ledger.java" path="ca/etsmtl/log240/financej/Ledger.java">
+        <result date="2020-03-10" statvalue="343" type="checkstyle"/>
+        <result date="2020-03-10" statvalue="28" type="pmd"/>
+    </file>
+    <file id="ca_etsmtl_log240_financej_Reports.java" path="ca/etsmtl/log240/financej/Reports.java">
+        <result date="2020-03-10" statvalue="192" type="checkstyle"/>
+        <result date="2020-03-10" statvalue="21" type="pmd"/>
     </file>
 </qalab>
