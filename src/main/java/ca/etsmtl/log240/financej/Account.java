@@ -48,7 +48,9 @@ public class Account extends JDialog {
         jPanel1 = new javax.swing.JPanel();
         AddAccountButton = new javax.swing.JButton();
         NameTextField = new javax.swing.JTextField();
+        NameTextField.setName("NAME_TEXT_FIELD");
         DescriptionTextField = new javax.swing.JTextField();
+        DescriptionTextField.setName("DESC_TEXT_FIELD");
         jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
 
