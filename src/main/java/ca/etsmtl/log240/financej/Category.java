@@ -49,11 +49,8 @@ public class Category extends JDialog {
         jLabel3 = new javax.swing.JLabel();
         AddCategoryButton = new javax.swing.JButton();
         NameTextField = new javax.swing.JTextField();
-        NameTextField.setName("NAME_TEXT_FIELD");
         DescriptionTextField = new javax.swing.JTextField();
-        DescriptionTextField.setName("DESC_TEXT_FIELD");
         BudgetTextField = new javax.swing.JTextField();
-        BudgetTextField.setName("BUDG_DOUBLE_FIELD");
         jScrollPane1 = new javax.swing.JScrollPane();
         CategoryListTable = new javax.swing.JTable();
 
@@ -180,7 +177,6 @@ public class Category extends JDialog {
         Budget = Float.valueOf(BudgetValue.trim()).floatValue();
         
         ReturnCode = dataModel.AddCategory(NameTextField.getText(), DescriptionTextField.getText(), Budget);
-        System.out.println(ReturnCode);
         if (ReturnCode == 0) {
             NameTextField.setText("");
             DescriptionTextField.setText("");

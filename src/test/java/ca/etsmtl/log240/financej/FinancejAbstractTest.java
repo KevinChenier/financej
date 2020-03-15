@@ -28,7 +28,7 @@ public abstract class FinancejAbstractTest extends UISpecTestCase {
         accountsButton = window.getButton("Accounts");
         reportsButton = window.getButton("Reports");
         exitButton = window.getButton("Exit");
-        UISpec4J.setWindowInterceptionTimeLimit(300);
+        UISpec4J.setWindowInterceptionTimeLimit(100);
     }
 
     protected void tearDown() throws Exception {
