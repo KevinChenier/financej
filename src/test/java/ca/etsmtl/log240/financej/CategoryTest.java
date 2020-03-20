@@ -29,9 +29,7 @@ public class CategoryTest extends FinancejAbstractTest {
                 int initialRowCount = categoryTable.getRowCount();
                 String validBudget = "10.00";
                 String validDescription = "Lorem ipsum dolor.";
-                window.getTextBox("NAME_TEXT_FIELD").setText("valid");
-                window.getTextBox("DESC_TEXT_FIELD").setText(validDescription);
-                window.getTextBox("BUDG_DOUBLE_FIELD").setText(validBudget);
+                fillValuesForTest(window, "valid", validDescription, validBudget);
                 window.getButton("Add Category").triggerClick();
                 assertEquals(categoryTable.getRowCount(), initialRowCount + 1);
               return window.getButton("Close").triggerClick();
@@ -52,18 +50,12 @@ public class CategoryTest extends FinancejAbstractTest {
                     int initialRowCount = categoryTable.getRowCount();
                     String validBudget = "10.00";
                     String validDescription = "Lorem ipsum dolor.";
-                    window.getTextBox("NAME_TEXT_FIELD").setText("Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam consequat, dolor laoreet fringilla iaculis, magna quam faucibus enim, quis aliquam neque enim quis mi. Aenean dui enim, accumsan vitae neque ut, laoreet tincidunt ex. Integer massa nunct.");
-                    window.getTextBox("DESC_TEXT_FIELD").setText(validDescription);
-                    window.getTextBox("BUDG_DOUBLE_FIELD").setText(validBudget);
+                    fillValuesForTest(window, "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam consequat, dolor laoreet fringilla iaculis, magna quam faucibus enim, quis aliquam neque enim quis mi. Aenean dui enim, accumsan vitae neque ut, laoreet tincidunt ex. Integer massa nunct.", validDescription, validBudget);
                     window.getButton("Add Category").triggerClick();
-                    // TODO: figure out how to test for error message
                     assertEquals(categoryTable.getRowCount(), initialRowCount);
 
-                    window.getTextBox("NAME_TEXT_FIELD").setText("");
-                    window.getTextBox("DESC_TEXT_FIELD").setText(validDescription);
-                    window.getTextBox("BUDG_DOUBLE_FIELD").setText(validBudget);
+                    fillValuesForTest(window, "", validDescription, validBudget);
                     window.getButton("Add Category").triggerClick();
-                    // TODO: figure out how to test for error message
                     assertEquals(categoryTable.getRowCount(), initialRowCount);
 
                     return window.getButton("Close").triggerClick();
@@ -86,9 +78,7 @@ public class CategoryTest extends FinancejAbstractTest {
                     int initialRowCount = categoryTable.getRowCount();
                     String validBudget = "10.00";
                     String invalidDescription = "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam consequat, dolor laoreet fringilla iaculis, magna quam faucibus enim, quis aliquam neque enim quis mi. Aenean dui enim, accumsan vitae neque ut, laoreet tincidunt ex. Integer massa nunc1.";
-                    window.getTextBox("NAME_TEXT_FIELD").setText("invalid_description_1");
-                    window.getTextBox("DESC_TEXT_FIELD").setText(invalidDescription);
-                    window.getTextBox("BUDG_DOUBLE_FIELD").setText(validBudget);
+                    fillValuesForTest(window, "invalid_description_1", invalidDescription, validBudget);
                     window.getButton("Add Category").triggerClick();
                     assertEquals(categoryTable.getRowCount(), initialRowCount);
                     return window.getButton("Close").triggerClick();
@@ -109,15 +99,11 @@ public class CategoryTest extends FinancejAbstractTest {
                         String validBudget = "10.00";
                         String validDescription1 = "";
                         String validDescription2 = "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam consequat, dolor laoreet fringilla iaculis, magna quam faucibus enim, quis aliquam neque enim quis mi. Aenean dui enim, accumsan vitae neque ut, laoreet tincidunt ex. Integer massa nunc.";
-                        window.getTextBox("NAME_TEXT_FIELD").setText("valid_description_1");
-                        window.getTextBox("DESC_TEXT_FIELD").setText(validDescription1);
-                        window.getTextBox("BUDG_DOUBLE_FIELD").setText(validBudget);
+                        fillValuesForTest(window, "valid_description_1", validDescription1, validBudget);
                         window.getButton("Add Category").triggerClick();
                         assertEquals(categoryTable.getRowCount(), initialRowCount + 1);
 
-                        window.getTextBox("NAME_TEXT_FIELD").setText("valid_description_2");
-                        window.getTextBox("DESC_TEXT_FIELD").setText(validDescription2);
-                        window.getTextBox("BUDG_DOUBLE_FIELD").setText(validBudget);
+                        fillValuesForTest(window, "valid_description_2", validDescription2, validBudget);
                         window.getButton("Add Category").triggerClick();
                         assertEquals(categoryTable.getRowCount(), initialRowCount + 2);
                         return window.getButton("Close").triggerClick();
@@ -139,10 +125,7 @@ public class CategoryTest extends FinancejAbstractTest {
                         int initialRowCount = categoryTable.getRowCount();
                         String validBudget = "10.00";
                         String validDescription1 = "";
-                        String validDescription2 = "Lorem ipsum dolor sit amet,";
-                        window.getTextBox("NAME_TEXT_FIELD").setText("valid_budget_1");
-                        window.getTextBox("DESC_TEXT_FIELD").setText(validDescription1);
-                        window.getTextBox("BUDG_DOUBLE_FIELD").setText(validBudget);
+                        fillValuesForTest(window, "valid_budget_1", validDescription1, validBudget);
                         window.getButton("Add Category").triggerClick();
                         assertEquals(categoryTable.getRowCount(), initialRowCount + 1);
                         return window.getButton("Close").triggerClick();
@@ -162,29 +145,26 @@ public class CategoryTest extends FinancejAbstractTest {
                         categoryTable = window.getTable();
                         int initialRowCount = categoryTable.getRowCount();
                         String validDescription1 = "valid description";
-                        window.getTextBox("NAME_TEXT_FIELD").setText("invalid_budget_1");
-                        window.getTextBox("DESC_TEXT_FIELD").setText(validDescription1);
-                        window.getTextBox("BUDG_DOUBLE_FIELD").setText("9999999999999932044674494988399999999999.00");
+                        fillValuesForTest(window, "invalid_budget_1", validDescription1, "9999999999999932044674494988399999999999.00");
                         window.getButton("Add Category").triggerClick();
-                        // TODO: figure out how to test thrown error
                         assertEquals(categoryTable.getRowCount(), initialRowCount);
 
-                        window.getTextBox("NAME_TEXT_FIELD").setText("invalid_budget_1");
-                        window.getTextBox("DESC_TEXT_FIELD").setText(validDescription1);
-                        window.getTextBox("BUDG_DOUBLE_FIELD").setText("");
+                        fillValuesForTest(window, "invalid_budget_2", validDescription1, "");
                         window.getButton("Add Category").triggerClick();
-                        // TODO: figure out how to test thrown error
                         assertEquals(categoryTable.getRowCount(), initialRowCount);
 
-                        window.getTextBox("NAME_TEXT_FIELD").setText("invalid_budget_1");
-                        window.getTextBox("DESC_TEXT_FIELD").setText(validDescription1);
-                        window.getTextBox("BUDG_DOUBLE_FIELD").setText("im a string");
+                        fillValuesForTest(window, "invalid_budget_3", validDescription1, "string");
                         window.getButton("Add Category").triggerClick();
-                        // TODO: figure out how to test thrown error
                         assertEquals(categoryTable.getRowCount(), initialRowCount);
                         return window.getButton("Close").triggerClick();
                     }
                 })
                 .run();
+    }
+
+    public void fillValuesForTest (Window window, String name, String desc, String budg) {
+        window.getTextBox("NAME_TEXT_FIELD").setText(name);
+        window.getTextBox("DESC_TEXT_FIELD").setText(desc);
+        window.getTextBox("BUDG_DOUBLE_FIELD").setText(budg);
     }
 }
