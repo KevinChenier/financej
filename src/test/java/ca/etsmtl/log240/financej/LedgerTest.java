@@ -15,6 +15,7 @@ public class LedgerTest extends FinancejAbstractTest {
     private String validCategoryName = "Épicerie";
     private static String connectionURL = "jdbc:derby:" + "FinanceJDB" + ";create=true";
 
+    @Override
     protected void setUp() throws Exception {
         super.setUp();
         Connection conn = DriverManager.getConnection(connectionURL);
@@ -24,7 +25,12 @@ public class LedgerTest extends FinancejAbstractTest {
         addNecessaryFieldsForTests();
     }
 
-    public void testAllFieldValuesAreGood () throws Exception {
+    @Override
+    protected void tearDown() throws Exception {
+        super.tearDown();
+    }
+
+    public void testValidLedger () throws Exception {
         WindowInterceptor.init(ledgerButton.triggerClick())
                 .process(new WindowHandler() {
                     public Trigger process(Window window) {
@@ -33,9 +39,9 @@ public class LedgerTest extends FinancejAbstractTest {
                         int initialRowCount = ledgerTable.getRowCount();
 
                         fillValuesForTest(window, "1999-12-11", "Roger", "Bonne description", "150.00", true, validCategoryName);
-                        window.getButton("Add Transaction").triggerClick();
+                        window.getButton("Add Transaction").click();
 
-                        assertEquals(ledgerTable.getRowCount(), initialRowCount);
+                        assertEquals(ledgerTable.getRowCount(), initialRowCount + 1);
 
                         return window.getButton("Close").triggerClick();
                     }
@@ -52,7 +58,7 @@ public class LedgerTest extends FinancejAbstractTest {
                         int initialRowCount = ledgerTable.getRowCount();
 
                         fillValuesForTest(window, "", "Roger", "Bonne description", "150.00", false, validCategoryName);
-                        window.getButton("Add Transaction").triggerClick();
+                        window.getButton("Add Transaction").click();
 
                         assertEquals(ledgerTable.getRowCount(), initialRowCount);
 
@@ -71,7 +77,7 @@ public class LedgerTest extends FinancejAbstractTest {
                         int initialRowCount = ledgerTable.getRowCount();
 
                         fillValuesForTest(window, "11-12-1999", "Roger", "Bonne description", "150.00", true, validCategoryName);
-                        window.getButton("Add Transaction").triggerClick();
+                        window.getButton("Add Transaction").click();
 
                         assertEquals(ledgerTable.getRowCount(), initialRowCount);
 
@@ -90,7 +96,7 @@ public class LedgerTest extends FinancejAbstractTest {
                         int initialRowCount = ledgerTable.getRowCount();
 
                         fillValuesForTest(window, "1999-12-1f", "Roger", "Bonne description", "150.00", true, validCategoryName);
-                        window.getButton("Add Transaction").triggerClick();
+                        window.getButton("Add Transaction").click();
 
                         assertEquals(ledgerTable.getRowCount(), initialRowCount);
 
@@ -109,7 +115,7 @@ public class LedgerTest extends FinancejAbstractTest {
                         int initialRowCount = ledgerTable.getRowCount();
 
                         fillValuesForTest(window, "1999-12-11", "", "Bonne description", "150.00", true, validCategoryName);
-                        window.getButton("Add Transaction").triggerClick();
+                        window.getButton("Add Transaction").click();
 
                         assertEquals(ledgerTable.getRowCount(), initialRowCount);
 
@@ -128,7 +134,7 @@ public class LedgerTest extends FinancejAbstractTest {
                         int initialRowCount = ledgerTable.getRowCount();
 
                         fillValuesForTest(window, "1999-12-11", "R", "Bonne description", "150.00", false, validCategoryName);
-                        window.getButton("Add Transaction").triggerClick();
+                        window.getButton("Add Transaction").click();
 
                         assertEquals(ledgerTable.getRowCount(), initialRowCount);
 
@@ -147,7 +153,7 @@ public class LedgerTest extends FinancejAbstractTest {
                         int initialRowCount = ledgerTable.getRowCount();
 
                         fillValuesForTest(window, "1999-12-11", new String(new char[51]).replace("\0", "a"), "Bonne description", "150.00", true, validCategoryName);
-                        window.getButton("Add Transaction").triggerClick();
+                        window.getButton("Add Transaction").click();
 
                         assertEquals(ledgerTable.getRowCount(), initialRowCount);
 
@@ -166,7 +172,7 @@ public class LedgerTest extends FinancejAbstractTest {
                         int initialRowCount = ledgerTable.getRowCount();
 
                         fillValuesForTest(window, "1999-12-11", "Roger", "", "150.00", true, validCategoryName);
-                        window.getButton("Add Transaction").triggerClick();
+                        window.getButton("Add Transaction").click();
 
                         assertEquals(ledgerTable.getRowCount(), initialRowCount);
 
@@ -185,7 +191,7 @@ public class LedgerTest extends FinancejAbstractTest {
                         int initialRowCount = ledgerTable.getRowCount();
 
                         fillValuesForTest(window, "1999-12-11", "Roger", "Lo", "150.00", false, validCategoryName);
-                        window.getButton("Add Transaction").triggerClick();
+                        window.getButton("Add Transaction").click();
 
                         assertEquals(ledgerTable.getRowCount(), initialRowCount);
 
@@ -195,7 +201,7 @@ public class LedgerTest extends FinancejAbstractTest {
                 .run();
     }
 
-    public void testOver50CharactersDescription () throws Exception {
+    public void testOver250CharactersDescription () throws Exception {
         WindowInterceptor.init(ledgerButton.triggerClick())
                 .process(new WindowHandler() {
                     public Trigger process(Window window) {
@@ -203,8 +209,8 @@ public class LedgerTest extends FinancejAbstractTest {
                         ledgerTable = window.getTable();
                         int initialRowCount = ledgerTable.getRowCount();
 
-                        fillValuesForTest(window, "1999-12-11", "Roger", new String(new char[51]).replace("\0", "a"), "150.00", true, validCategoryName);
-                        window.getButton("Add Transaction").triggerClick();
+                        fillValuesForTest(window, "1999-12-11", "Roger", new String(new char[251]).replace("\0", "a"), "150.00", true, validCategoryName);
+                        window.getButton("Add Transaction").click();
 
                         assertEquals(ledgerTable.getRowCount(), initialRowCount);
 
@@ -223,7 +229,7 @@ public class LedgerTest extends FinancejAbstractTest {
                         int initialRowCount = ledgerTable.getRowCount();
 
                         fillValuesForTest(window, "1999-12-11", "Roger", "Bonne description", "150.00", false, "");
-                        window.getButton("Add Transaction").triggerClick();
+                        window.getButton("Add Transaction").click();
 
                         assertEquals(ledgerTable.getRowCount(), initialRowCount);
 
@@ -242,7 +248,7 @@ public class LedgerTest extends FinancejAbstractTest {
                         int initialRowCount = ledgerTable.getRowCount();
 
                         fillValuesForTest(window, "1999-12-11", "Roger", "Bonne description", "", false, validCategoryName);
-                        window.getButton("Add Transaction").triggerClick();
+                        window.getButton("Add Transaction").click();
 
                         assertEquals(ledgerTable.getRowCount(), initialRowCount);
 
@@ -260,8 +266,8 @@ public class LedgerTest extends FinancejAbstractTest {
                         ledgerTable = window.getTable();
                         int initialRowCount = ledgerTable.getRowCount();
 
-                        fillValuesForTest(window, "1999-12-11", "Roger", "Bonne description", "150.0f", true, validCategoryName);
-                        window.getButton("Add Transaction").triggerClick();
+                        fillValuesForTest(window, "1999-12-11", "Roger", "Bonne description", "15d.ur", true, validCategoryName);
+                        window.getButton("Add Transaction").click();
 
                         assertEquals(ledgerTable.getRowCount(), initialRowCount);
 
@@ -271,7 +277,7 @@ public class LedgerTest extends FinancejAbstractTest {
                 .run();
     }
 
-    public void testAmountIs0OrLess () throws Exception {
+    public void testAmountIs0 () throws Exception {
         WindowInterceptor.init(ledgerButton.triggerClick())
                 .process(new WindowHandler() {
                     public Trigger process(Window window) {
@@ -280,7 +286,7 @@ public class LedgerTest extends FinancejAbstractTest {
                         int initialRowCount = ledgerTable.getRowCount();
 
                         fillValuesForTest(window, "1999-12-11", "Roger", "Bonne description", "0", true, validCategoryName);
-                        window.getButton("Add Transaction").triggerClick();
+                        window.getButton("Add Transaction").click();
 
                         assertEquals(ledgerTable.getRowCount(), initialRowCount);
 
@@ -290,7 +296,7 @@ public class LedgerTest extends FinancejAbstractTest {
                 .run();
     }
 
-    public void testAmountIsGreaterThan1000000 () throws Exception {
+    public void testAmountIsGreaterThan64Bit () throws Exception {
         WindowInterceptor.init(ledgerButton.triggerClick())
                 .process(new WindowHandler() {
                     public Trigger process(Window window) {
@@ -298,8 +304,8 @@ public class LedgerTest extends FinancejAbstractTest {
                         ledgerTable = window.getTable();
                         int initialRowCount = ledgerTable.getRowCount();
 
-                        fillValuesForTest(window, "1999-12-11", "Roger", "Bonne description", "9999999999.00", false, validCategoryName);
-                        window.getButton("Add Transaction").triggerClick();
+                        fillValuesForTest(window, "1999-12-11", "Roger", "Bonne description", "999999999999999999999999999999999999999999999.00", false, validCategoryName);
+                        window.getButton("Add Transaction").click();
 
                         assertEquals(ledgerTable.getRowCount(), initialRowCount);
 

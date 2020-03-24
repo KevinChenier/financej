@@ -6,7 +6,11 @@ import org.uispec4j.UISpecTestCase;
 import org.uispec4j.Window;
 import org.uispec4j.interception.MainClassAdapter;
 
+import java.sql.Connection;
+import java.sql.DriverManager;
+
 public abstract class FinancejAbstractTest extends UISpecTestCase {
+    private static String connectionURL = "jdbc:derby:" + "FinanceJDB" + ";create=true";
     protected Table ledgerTable;
     protected Button ledgerButton;
     protected Button categoriesButton;
@@ -28,10 +32,12 @@ public abstract class FinancejAbstractTest extends UISpecTestCase {
         accountsButton = window.getButton("Accounts");
         reportsButton = window.getButton("Reports");
         exitButton = window.getButton("Exit");
-        UISpec4J.setWindowInterceptionTimeLimit(100);
+        UISpec4J.setWindowInterceptionTimeLimit(300);
     }
 
     protected void tearDown() throws Exception {
+        Connection conn = DriverManager.getConnection(connectionURL);
+        conn.close();
         exitButton.click();
         super.tearDown();
     }
