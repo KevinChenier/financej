@@ -196,30 +196,29 @@ public class AccountTest extends FinancejAbstractTest {
                 }).run();
     }
 
-//    public void testDeleteAccount() throws Exception {
-//        WindowInterceptor.init(accountsButton.triggerClick())
-//                .process(new WindowHandler() {
-//                    public Trigger process(Window window) {
-//                        // setup
-//                        accountsTable = window.getTable();
-//                        int initialRowCount = accountsTable.getRowCount();
-//                        int initialLedgerTableCount = ledgerTable.getRowCount();
-//                        // ajouter un compte (valide)
-//                        final String NAME_INPUT = "Nom Name";
-//                        final String DESC_INPUT = "Description";
-//                        window.getTextBox("NAME_TEXT_FIELD").setText(NAME_INPUT);
-//                        window.getTextBox("DESC_TEXT_FIELD").setText(DESC_INPUT);
-//                        window.getButton("Add Account").click();
-//                        // supprimer le compte cree precedemment en cherchant le nom
-//                        accountsTable.selectRowsWithText(0, "Nom Name");
-//                        window.getButton("Delete Account").click();
-//                        // account deleted
-//                        assertEquals(accountsTable.getRowCount(), initialRowCount);
-//                        assertEquals(initialLedgerTableCount, ledgerTable.getRowCount());
-//                        // retourner un "trigger" qui ferme la fenetre
-//                        return exitButton.triggerClick();
-//                    }
-//                }).run();
-//    }
+    public void testDeleteAccount() throws Exception {
+        WindowInterceptor.init(accountsButton.triggerClick())
+                .process(new WindowHandler() {
+                    public Trigger process(Window window) {
+                        // setup
+                        accountsTable = window.getTable();
+                        int initialRowCount = accountsTable.getRowCount();
+                        int initialLedgerTableCount = ledgerTable.getRowCount();
+                        // ajouter un compte (valide)
+                        final String NAME_INPUT = "Nom Name";
+                        final String DESC_INPUT = "Description";
+                        window.getTextBox("NAME_TEXT_FIELD").setText(NAME_INPUT);
+                        window.getTextBox("DESC_TEXT_FIELD").setText(DESC_INPUT);
+                        window.getButton("Add Account").click();
+                        // supprimer le compte cree precedemment en cherchant le nom
+                        accountsTable.selectRowsWithText(0, "Nom Name");
+                        window.getButton("Delete Account").click();
+                        // account deleted
+                        assertEquals(accountsTable.getRowCount(), initialRowCount);
+                        // retourner un "trigger" qui ferme la fenetre
+                        return window.getButton("Close").triggerClick();
+                    }
+                }).run();
+    }
 
 }
