@@ -68,8 +68,11 @@ public class FinanceJ extends JFrame {
 
     public static void CreateDBTables() {
         String CreateStringAccount = "create table account (name varchar(50) primary key, description varchar(250))";
-        String CreateStringCategory = "create table category (name varchar(50) primary key, description varchar(250), budget float)";
-        String CreateStringLedger = "create table ledger (id INTEGER NOT NULL GENERATED ALWAYS AS IDENTITY (START WITH 1, INCREMENT BY 1),rec integer, tdate date, payee  varchar(50), description varchar(250), account varchar(50), category varchar(50), amount float)";
+        String CreateStringCategory = "create table category (name varchar(50) primary key, description varchar(250)," +
+                " budget float)";
+        String CreateStringLedger = "create table ledger (id INTEGER NOT NULL GENERATED ALWAYS AS IDENTITY " +
+                "(START WITH 1, INCREMENT BY 1),rec integer, tdate date, payee  varchar(50), description varchar(250)," +
+                " account varchar(50), category varchar(50), amount float)";
         Statement s;
 
         try {

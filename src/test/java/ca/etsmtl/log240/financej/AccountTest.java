@@ -13,7 +13,8 @@ import java.sql.Statement;
 
 public class AccountTest extends FinancejAbstractTest {
     private static String CONNECTION_URL = "jdbc:derby:FinanceJDB;create=true";
-    private final int MAX_FIELD_LENGTH = 50;
+    private final int MAX_SIZE_NAME= 50;
+    private final int MAX_SIZE_DESCRIPTION= 250;
     private Table accountsTable;
 
 
@@ -149,8 +150,8 @@ public class AccountTest extends FinancejAbstractTest {
                         int initialRowCount = accountsTable.getRowCount();
 
                         // créer une chaine de charactère de longueur de 51
-                        StringBuffer bufferChaine = new StringBuffer(MAX_FIELD_LENGTH + 1);
-                        for (int i = 0; i < MAX_FIELD_LENGTH + 1; i++) {
+                        StringBuffer bufferChaine = new StringBuffer(MAX_SIZE_NAME + 1);
+                        for (int i = 0; i < MAX_SIZE_NAME + 1; i++) {
                             bufferChaine.append("n");
                         }
 
@@ -178,8 +179,8 @@ public class AccountTest extends FinancejAbstractTest {
                         int initialRowCount = accountsTable.getRowCount();
 
                         // créer une chaine de charactère de longueur de 51
-                        StringBuffer bufferChaine = new StringBuffer(MAX_FIELD_LENGTH + 1);
-                        for (int i = 0; i < MAX_FIELD_LENGTH + 1; i++) {
+                        StringBuffer bufferChaine = new StringBuffer(MAX_SIZE_DESCRIPTION + 1);
+                        for (int i = 0; i < MAX_SIZE_DESCRIPTION + 1; i++) {
                             bufferChaine.append("n");
                         }
 
