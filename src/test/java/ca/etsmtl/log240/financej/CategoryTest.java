@@ -31,7 +31,7 @@ public class CategoryTest extends FinancejAbstractTest {
         statement.executeUpdate("DELETE FROM category");
     }
 
-    public void testCreerCategoryValideBugetDecimal() throws Exception {
+    public void testCreerCategoryValideBudgetDecimal() throws Exception {
          WindowInterceptor.init(categoriesButton.triggerClick())
           .process(new WindowHandler() {
               public Trigger process(Window window) {
@@ -71,7 +71,7 @@ public class CategoryTest extends FinancejAbstractTest {
         .run();
     }
 
-    public void testCreerCategoryNomVide () throws Exception {
+    public void testCreerCategoryNomVide() throws Exception {
          WindowInterceptor.init(categoriesButton.triggerClick())
           .process(new WindowHandler() {
               public Trigger process(Window window) {
@@ -91,7 +91,7 @@ public class CategoryTest extends FinancejAbstractTest {
         .run();
     }
 
-    public void testCreerCategoryBudgetVide () throws Exception {
+    public void testCreerCategoryBudgetVide() throws Exception {
          WindowInterceptor.init(categoriesButton.triggerClick())
           .process(new WindowHandler() {
               public Trigger process(Window window) {
@@ -111,7 +111,7 @@ public class CategoryTest extends FinancejAbstractTest {
         .run();
     }
 
-    public void testCreerCategoryDescriptionVide () throws Exception {
+    public void testCreerCategoryDescriptionVide() throws Exception {
          WindowInterceptor.init(categoriesButton.triggerClick())
           .process(new WindowHandler() {
               public Trigger process(Window window) {

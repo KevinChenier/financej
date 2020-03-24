@@ -170,7 +170,7 @@ public class AccountTest extends FinancejAbstractTest {
                 }).run();
     }
 
-    public void testCreerAccountDescMore50Char() throws Exception {
+    public void testCreerAccountDescMore250Char() throws Exception {
         WindowInterceptor.init(accountsButton.triggerClick())
                 .process(new WindowHandler() {
                     public Trigger process(Window window) {
@@ -178,7 +178,7 @@ public class AccountTest extends FinancejAbstractTest {
                         accountsTable = window.getTable();
                         int initialRowCount = accountsTable.getRowCount();
 
-                        // créer une chaine de charactère de longueur de 51
+                        // créer une chaine de charactère de longueur de 251
                         StringBuffer bufferChaine = new StringBuffer(MAX_SIZE_DESCRIPTION + 1);
                         for (int i = 0; i < MAX_SIZE_DESCRIPTION + 1; i++) {
                             bufferChaine.append("n");
