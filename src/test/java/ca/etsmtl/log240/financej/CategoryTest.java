@@ -20,6 +20,7 @@ public class CategoryTest extends FinancejAbstractTest {
     private Table categoryTable;
     private final int MAX_SIZE_NAME= 50;
     private final int MAX_SIZE_DESCRIPTION= 250;
+    private final int MAX_SIZE_BUDGET= 64;
 
      @Override
     protected void setUp() throws Exception {
@@ -30,7 +31,7 @@ public class CategoryTest extends FinancejAbstractTest {
         statement.executeUpdate("DELETE FROM category");
     }
 
-    public void testCreerCategoryValide () throws Exception {
+    public void testCreerCategoryValideBugetDecimal() throws Exception {
          WindowInterceptor.init(categoriesButton.triggerClick())
           .process(new WindowHandler() {
               public Trigger process(Window window) {
@@ -39,6 +40,26 @@ public class CategoryTest extends FinancejAbstractTest {
                 int initialRowCount = categoryTable.getRowCount();
                 final String NAME_INPUT = "Name";
                 final String BUDGET_INPUT = "10.00";
+                final String DESCRIPTION_INPUT = "Lorem ipsum dolor.";
+                fillValuesForTest(window, NAME_INPUT, DESCRIPTION_INPUT, BUDGET_INPUT);
+                window.getButton("Add Category").click();
+             //   assertEquals();
+                assertEquals(categoryTable.getRowCount(), initialRowCount + 1);
+              return window.getButton("Close").triggerClick();
+            }
+        })
+        .run();
+    }
+
+    public void testCreerCategoryValideBudgetSimple() throws Exception {
+         WindowInterceptor.init(categoriesButton.triggerClick())
+          .process(new WindowHandler() {
+              public Trigger process(Window window) {
+                // setup
+                categoryTable = window.getTable();
+                int initialRowCount = categoryTable.getRowCount();
+                final String NAME_INPUT = "Name";
+                final String BUDGET_INPUT = "10";
                 final String DESCRIPTION_INPUT = "Lorem ipsum dolor.";
                 fillValuesForTest(window, NAME_INPUT, DESCRIPTION_INPUT, BUDGET_INPUT);
                 window.getButton("Add Category").click();
@@ -130,26 +151,6 @@ public class CategoryTest extends FinancejAbstractTest {
         .run();
     }
 
-    public void testCreerCategoryBudgetNegative() throws Exception {
-         WindowInterceptor.init(categoriesButton.triggerClick())
-          .process(new WindowHandler() {
-              public Trigger process(Window window) {
-                // setup
-                categoryTable = window.getTable();
-                int initialRowCount = categoryTable.getRowCount();
-                final String NAME_INPUT = "Name";
-                final String BUDGET_INPUT = "-5.00";
-                final String DESCRIPTION_INPUT = "Lorem ipsum dolor.";
-                fillValuesForTest(window, NAME_INPUT, DESCRIPTION_INPUT, BUDGET_INPUT);
-                window.getButton("Add Category").click();
-                // pas de nouvelle ligne dans la table
-                assertEquals(categoryTable.getRowCount(), initialRowCount);
-              return window.getButton("Close").triggerClick();
-            }
-        })
-        .run();
-    }
-
     public void testCreerCategoryDescriptionLessThreeChar() throws Exception {
          WindowInterceptor.init(categoriesButton.triggerClick())
           .process(new WindowHandler() {
@@ -207,8 +208,54 @@ public class CategoryTest extends FinancejAbstractTest {
                         for (int i = 0; i < MAX_SIZE_DESCRIPTION + 1 + 1; i++) {
                             bufferChaine.append("n");
                         }
-                final String NAME_INPUT = bufferChaine.toString();
+                final String NAME_INPUT = "Name";
                 final String BUDGET_INPUT = "10.00";
+                final String DESCRIPTION_INPUT = bufferChaine.toString();
+                fillValuesForTest(window, NAME_INPUT, DESCRIPTION_INPUT, BUDGET_INPUT);
+                window.getButton("Add Category").click();
+                // pas de nouvelle ligne dans la table
+                assertEquals(categoryTable.getRowCount(), initialRowCount);
+              return window.getButton("Close").triggerClick();
+            }
+        })
+        .run();
+    }
+
+        public void testCreerCategoryBudgetNegative() throws Exception {
+         WindowInterceptor.init(categoriesButton.triggerClick())
+          .process(new WindowHandler() {
+              public Trigger process(Window window) {
+                // setup
+                categoryTable = window.getTable();
+                int initialRowCount = categoryTable.getRowCount();
+                final String NAME_INPUT = "Name";
+                final String BUDGET_INPUT = "-5.00";
+                final String DESCRIPTION_INPUT = "Lorem ipsum dolor.";
+                fillValuesForTest(window, NAME_INPUT, DESCRIPTION_INPUT, BUDGET_INPUT);
+                window.getButton("Add Category").click();
+                // pas de nouvelle ligne dans la table
+                assertEquals(categoryTable.getRowCount(), initialRowCount);
+              return window.getButton("Close").triggerClick();
+            }
+        })
+        .run();
+    }
+
+    public void testCreerCategoryBudgetMore64Bits() throws Exception {
+         WindowInterceptor.init(categoriesButton.triggerClick())
+          .process(new WindowHandler() {
+              public Trigger process(Window window) {
+                // setup
+                categoryTable = window.getTable();
+                int initialRowCount = categoryTable.getRowCount();
+
+                StringBuffer bufferChaine = new StringBuffer(MAX_SIZE_BUDGET + 1);
+                        for (int i = 0; i < MAX_SIZE_BUDGET + 1 + 1; i++) {
+                            bufferChaine.append("5");
+                        }
+                final String NAME_INPUT = "Name";
+                // huge budget > 64 bits
+                final String BUDGET_INPUT = bufferChaine.toString();
                 final String DESCRIPTION_INPUT = "Lorem ipsum dolor";
                 fillValuesForTest(window, NAME_INPUT, DESCRIPTION_INPUT, BUDGET_INPUT);
                 window.getButton("Add Category").click();
@@ -219,7 +266,28 @@ public class CategoryTest extends FinancejAbstractTest {
         })
         .run();
     }
-    
+
+    public void testCreerCategoryBudgetPasNumerique() throws Exception {
+         WindowInterceptor.init(categoriesButton.triggerClick())
+          .process(new WindowHandler() {
+              public Trigger process(Window window) {
+                // setup
+                categoryTable = window.getTable();
+                int initialRowCount = categoryTable.getRowCount();
+                final String NAME_INPUT = "Name";
+                // budget contenant caractères non numériques
+                final String BUDGET_INPUT = "5 dollars";
+                final String DESCRIPTION_INPUT = "Lorem ipsum dolor";
+                fillValuesForTest(window, NAME_INPUT, DESCRIPTION_INPUT, BUDGET_INPUT);
+                window.getButton("Add Category").click();
+                // pas de nouvelle ligne dans la table
+                assertEquals(categoryTable.getRowCount(), initialRowCount);
+              return window.getButton("Close").triggerClick();
+            }
+        })
+        .run();
+    }
+
 
     public void fillValuesForTest (Window window, String name, String desc, String budg) {
         window.getTextBox("NAME_TEXT_FIELD").setText(name);
