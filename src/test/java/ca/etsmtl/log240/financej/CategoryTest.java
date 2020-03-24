@@ -21,12 +21,10 @@ public class CategoryTest extends FinancejAbstractTest {
     private final int MAX_SIZE_DESCRIPTION= 250;
     private final int MAX_SIZE_BUDGET= 64;
 
-    @Override
     protected void setUp() throws Exception {
         super.setUp();
     }
 
-    @Override
     protected void tearDown() throws Exception {
         super.tearDown();
     }
@@ -282,6 +280,26 @@ public class CategoryTest extends FinancejAbstractTest {
                 window.getButton("Add Category").click();
                 // pas de nouvelle ligne dans la table
                 assertEquals(categoryTable.getRowCount(), initialRowCount);
+              return window.getButton("Close").triggerClick();
+            }
+        })
+        .run();
+    }
+    public void testDeleteCategory() throws Exception {
+         WindowInterceptor.init(categoriesButton.triggerClick())
+          .process(new WindowHandler() {
+              public Trigger process(Window window) {
+                // setup
+                categoryTable = window.getTable();
+                int initialRowCount = categoryTable.getRowCount();
+                final String NAME_INPUT = "Name";
+                final String BUDGET_INPUT = "10";
+                final String DESCRIPTION_INPUT = "Lorem ipsum dolor.";
+                fillValuesForTest(window, NAME_INPUT, DESCRIPTION_INPUT, BUDGET_INPUT);
+                window.getButton("Add Category").click();
+                // delete category
+                window.getButton("Delete Category");
+                assertEquals(initialRowCount, categoryTable.getRowCount());
               return window.getButton("Close").triggerClick();
             }
         })
