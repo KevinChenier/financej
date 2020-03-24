@@ -12,19 +12,18 @@ import java.sql.DriverManager;
 import java.sql.Statement;
 
 public class AccountTest extends FinancejAbstractTest {
-    private static String CONNECTION_URL = "jdbc:derby:FinanceJDB;create=true";
     private final int MAX_SIZE_NAME= 50;
     private final int MAX_SIZE_DESCRIPTION= 250;
     private Table accountsTable;
 
-
     @Override
     protected void setUp() throws Exception {
         super.setUp();
-        // clear table before each test
-        Connection conn = DriverManager.getConnection(CONNECTION_URL);
-        Statement statement = conn.createStatement();
-        statement.executeUpdate("DELETE FROM account");
+    }
+
+    @Override
+    protected void tearDown() throws Exception {
+        super.tearDown();
     }
 
     public void testCreerAccountValide() throws Exception {

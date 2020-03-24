@@ -13,15 +13,10 @@ import java.sql.Statement;
 public class LedgerTest extends FinancejAbstractTest {
 
     private String validCategoryName = "Épicerie";
-    private static String connectionURL = "jdbc:derby:" + "FinanceJDB" + ";create=true";
 
     @Override
     protected void setUp() throws Exception {
         super.setUp();
-        Connection conn = DriverManager.getConnection(connectionURL);
-        Statement statement = conn.createStatement();
-        statement.executeUpdate("DELETE FROM account");
-        statement.executeUpdate("DELETE FROM category");
         addNecessaryFieldsForTests();
     }
 

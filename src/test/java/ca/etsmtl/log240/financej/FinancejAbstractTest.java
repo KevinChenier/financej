@@ -8,9 +8,12 @@ import org.uispec4j.interception.MainClassAdapter;
 
 import java.sql.Connection;
 import java.sql.DriverManager;
+import java.sql.SQLException;
+import java.sql.Statement;
 
 public abstract class FinancejAbstractTest extends UISpecTestCase {
-    private static String connectionURL = "jdbc:derby:" + "FinanceJDB" + ";create=true";
+    private static String CONNECTION_URL = "jdbc:derby:" + "FinanceJDB" + ";create=true";
+
     protected Table ledgerTable;
     protected Button ledgerButton;
     protected Button categoriesButton;
@@ -32,14 +35,23 @@ public abstract class FinancejAbstractTest extends UISpecTestCase {
         accountsButton = window.getButton("Accounts");
         reportsButton = window.getButton("Reports");
         exitButton = window.getButton("Exit");
+        deleteAllTablesForTests();
         UISpec4J.setWindowInterceptionTimeLimit(300);
     }
 
     protected void tearDown() throws Exception {
-        Connection conn = DriverManager.getConnection(connectionURL);
+        Connection conn = DriverManager.getConnection(CONNECTION_URL);
         conn.close();
         exitButton.click();
         super.tearDown();
+    }
+
+    private void deleteAllTablesForTests() throws SQLException {
+        Connection conn = DriverManager.getConnection(CONNECTION_URL);
+        Statement statement = conn.createStatement();
+        statement.executeUpdate("DELETE FROM account");
+        statement.executeUpdate("DELETE FROM category");
+        statement.executeUpdate("DELETE FROM ledger");
     }
 
 }
