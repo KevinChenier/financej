@@ -14,13 +14,11 @@ public class LedgerTest extends FinancejAbstractTest {
 
     private String validCategoryName = "Épicerie";
 
-    @Override
     protected void setUp() throws Exception {
         super.setUp();
         addNecessaryFieldsForTests();
     }
 
-    @Override
     protected void tearDown() throws Exception {
         super.tearDown();
     }
@@ -91,6 +89,120 @@ public class LedgerTest extends FinancejAbstractTest {
                         int initialRowCount = ledgerTable.getRowCount();
 
                         fillValuesForTest(window, "1999-12-1f", "Roger", "Bonne description", "150.00", true, validCategoryName);
+                        window.getButton("Add Transaction").click();
+
+                        assertEquals(ledgerTable.getRowCount(), initialRowCount);
+
+                        return window.getButton("Close").triggerClick();
+                    }
+                })
+                .run();
+    }
+
+    public void testDayLessThan1() {
+        WindowInterceptor.init(ledgerButton.triggerClick())
+                .process(new WindowHandler() {
+                    public Trigger process(Window window) {
+                        // setup
+                        ledgerTable = window.getTable();
+                        int initialRowCount = ledgerTable.getRowCount();
+
+                        fillValuesForTest(window, "1999-12-00", "Roger", "Bonne description", "150.00", true, validCategoryName);
+                        window.getButton("Add Transaction").click();
+
+                        assertEquals(ledgerTable.getRowCount(), initialRowCount);
+
+                        return window.getButton("Close").triggerClick();
+                    }
+                })
+                .run();
+    }
+
+    public void testDayGreaterThan31() {
+        WindowInterceptor.init(ledgerButton.triggerClick())
+                .process(new WindowHandler() {
+                    public Trigger process(Window window) {
+                        // setup
+                        ledgerTable = window.getTable();
+                        int initialRowCount = ledgerTable.getRowCount();
+
+                        fillValuesForTest(window, "1999-12-32", "Roger", "Bonne description", "150.00", false, validCategoryName);
+                        window.getButton("Add Transaction").click();
+
+                        assertEquals(ledgerTable.getRowCount(), initialRowCount);
+
+                        return window.getButton("Close").triggerClick();
+                    }
+                })
+                .run();
+    }
+
+    public void testMonthLessThan1() {
+        WindowInterceptor.init(ledgerButton.triggerClick())
+                .process(new WindowHandler() {
+                    public Trigger process(Window window) {
+                        // setup
+                        ledgerTable = window.getTable();
+                        int initialRowCount = ledgerTable.getRowCount();
+
+                        fillValuesForTest(window, "1999-00-11", "Roger", "Bonne description", "150.00", true, validCategoryName);
+                        window.getButton("Add Transaction").click();
+
+                        assertEquals(ledgerTable.getRowCount(), initialRowCount);
+
+                        return window.getButton("Close").triggerClick();
+                    }
+                })
+                .run();
+    }
+
+    public void testMonthMoreThan12() {
+        WindowInterceptor.init(ledgerButton.triggerClick())
+                .process(new WindowHandler() {
+                    public Trigger process(Window window) {
+                        // setup
+                        ledgerTable = window.getTable();
+                        int initialRowCount = ledgerTable.getRowCount();
+
+                        fillValuesForTest(window, "1999-13-11", "Roger", "Bonne description", "150.00", false, validCategoryName);
+                        window.getButton("Add Transaction").click();
+
+                        assertEquals(ledgerTable.getRowCount(), initialRowCount);
+
+                        return window.getButton("Close").triggerClick();
+                    }
+                })
+                .run();
+    }
+
+    public void testBisextileOutOfBound() {
+        WindowInterceptor.init(ledgerButton.triggerClick())
+                .process(new WindowHandler() {
+                    public Trigger process(Window window) {
+                        // setup
+                        ledgerTable = window.getTable();
+                        int initialRowCount = ledgerTable.getRowCount();
+
+                        fillValuesForTest(window, "2007-02-29", "Roger", "Bonne description", "150.00", false, validCategoryName);
+                        window.getButton("Add Transaction").click();
+
+                        assertEquals(ledgerTable.getRowCount(), initialRowCount);
+
+                        return window.getButton("Close").triggerClick();
+                    }
+                })
+                .run();
+    }
+
+    public void testDayInMonthOutOfBound () {
+        WindowInterceptor.init(ledgerButton.triggerClick())
+                .process(new WindowHandler() {
+                    public Trigger process(Window window) {
+                        // setup
+                        ledgerTable = window.getTable();
+                        int initialRowCount = ledgerTable.getRowCount();
+
+                        fillValuesForTest(window, "1999-11-31", "Roger", "Bonne description", "150.00", true, validCategoryName);
                         window.getButton("Add Transaction").click();
 
                         assertEquals(ledgerTable.getRowCount(), initialRowCount);

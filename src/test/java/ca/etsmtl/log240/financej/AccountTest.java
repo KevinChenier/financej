@@ -16,12 +16,10 @@ public class AccountTest extends FinancejAbstractTest {
     private final int MAX_SIZE_DESCRIPTION= 250;
     private Table accountsTable;
 
-    @Override
     protected void setUp() throws Exception {
         super.setUp();
     }
 
-    @Override
     protected void tearDown() throws Exception {
         super.tearDown();
     }
