@@ -14,13 +14,11 @@ public class LedgerTest extends FinancejAbstractTest {
 
     private String validCategoryName = "Épicerie";
 
-    @Override
     protected void setUp() throws Exception {
         super.setUp();
         addNecessaryFieldsForTests();
     }
 
-    @Override
     protected void tearDown() throws Exception {
         super.tearDown();
     }

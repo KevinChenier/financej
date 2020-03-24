@@ -35,15 +35,15 @@ public abstract class FinancejAbstractTest extends UISpecTestCase {
         accountsButton = window.getButton("Accounts");
         reportsButton = window.getButton("Reports");
         exitButton = window.getButton("Exit");
-        deleteAllTablesForTests();
         UISpec4J.setWindowInterceptionTimeLimit(300);
     }
 
     protected void tearDown() throws Exception {
+        super.tearDown();
+        deleteAllTablesForTests();
         Connection conn = DriverManager.getConnection(CONNECTION_URL);
         conn.close();
         exitButton.click();
-        super.tearDown();
     }
 
     private void deleteAllTablesForTests() throws SQLException {
