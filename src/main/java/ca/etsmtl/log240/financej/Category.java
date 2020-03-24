@@ -180,6 +180,7 @@ public class Category extends JDialog {
         Budget = Float.valueOf(BudgetValue.trim()).floatValue();
         
         ReturnCode = dataModel.AddCategory(NameTextField.getText(), DescriptionTextField.getText(), Budget);
+        System.out.println(ReturnCode);
         if (ReturnCode == 0) {
             NameTextField.setText("");
             DescriptionTextField.setText("");
