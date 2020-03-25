@@ -447,7 +447,8 @@ public class LedgerTest extends FinancejAbstractTest {
                 }).run();
     }
 
-    private void fillValuesForTest (Window window, String date, String payee, String description, String amount, boolean recValue, String category) {
+    private void fillValuesForTest (Window window, String date, String payee, String description, String amount,
+                                    boolean recValue, String category) {
         window.getTextBox("DATE_TEXT_FIELD").setText(date);
         window.getTextBox("PAYEE_TEXT_FIELD").setText(payee);
         window.getTextBox("DESC_TEXT_FIELD").setText(description);
