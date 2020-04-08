@@ -1,4 +1,4 @@
-package ca.etsmtl.log240.financej;
+package ca.etsmtl.log240.db;
 /*
 Derby - WwdUtils.java - utilitity methods used by WwdEmbedded.java
 Licensed to the Apache Software Foundation (ASF) under one
