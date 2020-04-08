@@ -58,8 +58,8 @@ public class FinanceJ extends JFrame {
     
     /** Creates new form FinanceJ */
     public FinanceJ() {
-        DerbyUtils derbyUtils = DerbyUtils.getInstance("org.apache.derby.jdbc.EmbeddedDriver");
-        LoadDBDriver();
+        DerbyUtils derbyUtils = DerbyUtils.getInstance();
+        derbyUtils.loadDBDriver();
         derbyUtils.createDBConnection();
         derbyUtils.createDBTables();
 
@@ -302,10 +302,9 @@ public class FinanceJ extends JFrame {
 class AccountTotalTableModel extends AbstractTableModel {
 
     private String[] columnNames = {"Account", "Balance"};
-    private Connection conn = null;
 
     public AccountTotalTableModel(Connection DBConn) {
-        conn = DBConn;
+        DerbyUtils.getInstance().setConnnection(DBConn);
     }
 
     public int getColumnCount() {
@@ -317,9 +316,9 @@ class AccountTotalTableModel extends AbstractTableModel {
         Statement s;
         int NumRecords = 0;
 
-        if (conn != null) {
+        if (DerbyUtils.getInstance().getConnection() != null) {
             try {
-                s = conn.createStatement();
+                s = DerbyUtils.getInstance().getConnection().createStatement();
                 AccountResult = s.executeQuery("select account, sum(amount) from ledger group by account");
                 while (AccountResult.next()) {
                     NumRecords++;
@@ -342,9 +341,9 @@ class AccountTotalTableModel extends AbstractTableModel {
         Statement s;
         int CurrentRow = 0;
 
-        if (conn != null) {
+        if (DerbyUtils.getInstance().getConnection() != null) {
             try {
-                s = conn.createStatement();
+                s = DerbyUtils.getInstance().getConnection().createStatement();
                 AccountResult = s.executeQuery("select account, sum(amount) from ledger group by account");
                 while (AccountResult.next()) {
                     if (CurrentRow == row) {

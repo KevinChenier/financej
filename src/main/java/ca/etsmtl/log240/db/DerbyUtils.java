@@ -1,7 +1,6 @@
 package ca.etsmtl.log240.db;
 
 import ca.etsmtl.log240.financej.DBUtils;
-
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.SQLException;
@@ -10,33 +9,49 @@ import java.sql.Statement;
 public class DerbyUtils {
 
     // define the driver to use
-    private String driver;
+    private final String DRIVER = "org.apache.derby.jdbc.EmbeddedDriver";
     // the database name
     private static final String dbName = "FinanceJDB";
     // define the Derby connection URL to use
     private static final String connectionURL = "jdbc:derby:" + dbName + ";create=true";
 
-    private static Connection connnection = null;
+    private Connection connnection = null;
 
     private static DerbyUtils instance = null;
 
-    private DerbyUtils(String driver) {
-        this.driver = driver;
-    }
-
     private DerbyUtils() {
-        this.driver = driver;
-    }
-
-    public static DerbyUtils getInstance(String driver) {
-        if(instance == null) {
-            return new DerbyUtils(driver);
-        }
+        loadDBDriver();
+        createDBConnection();
     }
 
     public static DerbyUtils getInstance() {
         if(instance == null) {
-           // return new DerbyUtils();
+            instance = new DerbyUtils();
+        }
+        return instance;
+    }
+
+    public void loadDBDriver() {
+        try {
+            /*
+             **  Load the Derby driver.
+             **     When the embedded Driver is used this action start the Derby engine.
+             **  Catch an error and suggest a CLASSPATH problem
+             */
+           Class.forName(DRIVER).newInstance();
+            System.out.println(DRIVER + " loaded. ");
+        } catch (java.lang.ClassNotFoundException e) {
+            System.err.print("ClassNotFoundException: ");
+            System.err.println(e.getMessage());
+            System.out.println("\n    >>> Please check your CLASSPATH variable   <<<\n");
+        } catch (InstantiationException e) {
+            // TODO Auto-generated catch block
+            System.out.println("\n    >>> Instantiation Exception   <<<\n");
+            e.printStackTrace();
+        } catch (IllegalAccessException e) {
+            // TODO Auto-generated catch block
+            System.out.println("\n    >>> Illegal Access Exception   <<<\n");
+            e.printStackTrace();
         }
     }
 
@@ -95,7 +110,7 @@ public class DerbyUtils {
 
         /*** In embedded mode, an application should shut down Derby.
         Shutdown throws the XJ015 exception to confirm success. ***/
-        if (driver.equals("org.apache.derby.jdbc.EmbeddedDriver")) {
+        if (DRIVER.equals("org.apache.derby.jdbc.EmbeddedDriver")) {
             boolean gotSQLExc = false;
             try {
                 DriverManager.getConnection("jdbc:derby:;shutdown=true");
@@ -141,5 +156,9 @@ public class DerbyUtils {
 
     public Connection getConnection() {
         return connnection;
+    }
+
+    public void setConnnection(Connection connnection) {
+        this.connnection = connnection;
     }
 }
