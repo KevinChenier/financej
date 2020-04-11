@@ -11,7 +11,7 @@ import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.Statement;
 
-public class AccountTest extends FinancejAbstractTest {
+public class AccountDialogTest extends FinancejAbstractTest {
     private final int MAX_SIZE_NAME= 50;
     private final int MAX_SIZE_DESCRIPTION= 250;
     private Table accountsTable;

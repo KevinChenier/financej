@@ -21,7 +21,7 @@ import java.awt.event.*;
 public class FinanceJ extends JFrame {
 
 
-    private Account AccountDialog;
+    private AccountDialog AccountDialog;
     private Category CategoryDialog;
     private Ledger LedgerDialog;
     private Reports ReportsDialog;
@@ -69,9 +69,8 @@ public class FinanceJ extends JFrame {
         LedgerDialog.setVisible(false);
         LedgerDialog.SetDBConnection(derbyUtils.getConnection());
 
-        AccountDialog = new Account(this, true);
+        AccountDialog = new AccountDialog(this, true);
         AccountDialog.setVisible(false);
-        AccountDialog.SetDBConnection(derbyUtils.getConnection());
         
         CategoryDialog = new Category(this, true);
         CategoryDialog.setVisible(false);
