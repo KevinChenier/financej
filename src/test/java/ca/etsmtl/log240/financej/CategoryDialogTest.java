@@ -15,7 +15,7 @@ import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.Statement;
 
-public class CategoryTest extends FinancejAbstractTest {
+public class CategoryDialogTest extends FinancejAbstractTest {
     private Table categoryTable;
     private final int MAX_SIZE_NAME= 50;
     private final int MAX_SIZE_DESCRIPTION= 250;
