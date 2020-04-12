@@ -32,6 +32,16 @@
         <summaryresult date="2020-03-10" filecount="8" statvalue="1179" type="checkstyle"/>
         <summaryresult date="2020-03-10" filecount="8" statvalue="131" type="pmd"/>
         <summaryresult date="2020-03-10" filecount="4" statvalue="22" type="pmd-cpd"/>
+        <summaryresult date="2020-04-11" filecount="12" statvalue="1222" type="checkstyle"/>
+        <summaryresult date="2020-04-11" filecount="10" statvalue="127" type="pmd"/>
+        <summaryresult date="2020-04-11" filecount="4" statvalue="22" type="pmd-cpd"/>
+        <summaryresult date="2020-04-11" filecount="20" statvalue="51" type="cobertura-line"/>
+        <summaryresult date="2020-04-11" filecount="20" statvalue="23" type="cobertura-branch"/>
+        <summaryresult date="2020-04-12" filecount="12" statvalue="1222" type="checkstyle"/>
+        <summaryresult date="2020-04-12" filecount="10" statvalue="127" type="pmd"/>
+        <summaryresult date="2020-04-12" filecount="4" statvalue="22" type="pmd-cpd"/>
+        <summaryresult date="2020-04-12" filecount="20" statvalue="51" type="cobertura-line"/>
+        <summaryresult date="2020-04-12" filecount="20" statvalue="23" type="cobertura-branch"/>
     </summary>
     <file id="ca_etsmtl_log240_financej_App.java" path="ca/etsmtl/log240/financej/App.java">
         <result date="2020-01-23" statvalue="8" type="checkstyle"/>
@@ -106,18 +116,50 @@
     <file id="ca_etsmtl_log240_App.java" path="ca/etsmtl/log240/App.java">
         <result date="2020-03-10" statvalue="6" type="checkstyle"/>
         <result date="2020-03-10" statvalue="1" type="pmd"/>
+        <result date="2020-04-11" statvalue="6" type="checkstyle"/>
+        <result date="2020-04-11" statvalue="1" type="pmd"/>
+        <result date="2020-04-11" statvalue="100" type="cobertura-branch"/>
+        <result date="2020-04-12" statvalue="6" type="checkstyle"/>
+        <result date="2020-04-12" statvalue="1" type="pmd"/>
+        <result date="2020-04-12" statvalue="100" type="cobertura-branch"/>
     </file>
     <file id="ca_etsmtl_log240_auth_AuthFrame.java" path="ca/etsmtl/log240/auth/AuthFrame.java">
         <result date="2020-03-10" statvalue="28" type="checkstyle"/>
         <result date="2020-03-10" statvalue="3" type="pmd"/>
+        <result date="2020-04-11" statvalue="28" type="checkstyle"/>
+        <result date="2020-04-11" statvalue="3" type="pmd"/>
+        <result date="2020-04-11" statvalue="100" type="cobertura-branch"/>
+        <result date="2020-04-12" statvalue="28" type="checkstyle"/>
+        <result date="2020-04-12" statvalue="3" type="pmd"/>
+        <result date="2020-04-12" statvalue="100" type="cobertura-branch"/>
     </file>
     <file id="ca_etsmtl_log240_financej_Account.java" path="ca/etsmtl/log240/financej/Account.java">
         <result date="2020-03-10" statvalue="166" type="checkstyle"/>
         <result date="2020-03-10" statvalue="16" type="pmd"/>
+        <result date="2020-04-11" statvalue="23" type="checkstyle"/>
+        <result date="2020-04-11" statvalue="2" type="pmd"/>
+        <result date="2020-04-11" statvalue="87" type="cobertura-line"/>
+        <result date="2020-04-11" statvalue="100" type="cobertura-branch"/>
+        <result date="2020-04-12" statvalue="23" type="checkstyle"/>
+        <result date="2020-04-12" statvalue="2" type="pmd"/>
+        <result date="2020-04-12" statvalue="87" type="cobertura-line"/>
+        <result date="2020-04-12" statvalue="100" type="cobertura-branch"/>
     </file>
     <file id="ca_etsmtl_log240_financej_Category.java" path="ca/etsmtl/log240/financej/Category.java">
         <result date="2020-03-10" statvalue="177" type="checkstyle"/>
         <result date="2020-03-10" statvalue="17" type="pmd"/>
+        <result date="2020-04-11" statvalue="177" type="checkstyle"/>
+        <result date="2020-04-11" statvalue="17" type="pmd"/>
+        <result date="2020-04-11" statvalue="94" type="cobertura-line"/>
+        <result date="2020-04-11" statvalue="32" type="cobertura-line"/>
+        <result date="2020-04-11" statvalue="50" type="cobertura-branch"/>
+        <result date="2020-04-11" statvalue="8" type="cobertura-branch"/>
+        <result date="2020-04-12" statvalue="177" type="checkstyle"/>
+        <result date="2020-04-12" statvalue="17" type="pmd"/>
+        <result date="2020-04-12" statvalue="94" type="cobertura-line"/>
+        <result date="2020-04-12" statvalue="32" type="cobertura-line"/>
+        <result date="2020-04-12" statvalue="50" type="cobertura-branch"/>
+        <result date="2020-04-12" statvalue="8" type="cobertura-branch"/>
     </file>
     <file id="ca_etsmtl_log240_financej_DBUtils.java" path="ca/etsmtl/log240/financej/DBUtils.java">
         <result date="2020-03-10" statvalue="40" type="checkstyle"/>
@@ -126,13 +168,93 @@
     <file id="ca_etsmtl_log240_financej_FinanceJ.java" path="ca/etsmtl/log240/financej/FinanceJ.java">
         <result date="2020-03-10" statvalue="227" type="checkstyle"/>
         <result date="2020-03-10" statvalue="26" type="pmd"/>
+        <result date="2020-04-11" statvalue="186" type="checkstyle"/>
+        <result date="2020-04-11" statvalue="21" type="pmd"/>
+        <result date="2020-04-11" statvalue="37" type="cobertura-line"/>
+        <result date="2020-04-11" statvalue="91" type="cobertura-line"/>
+        <result date="2020-04-11" statvalue="14" type="cobertura-branch"/>
+        <result date="2020-04-11" statvalue="66" type="cobertura-branch"/>
+        <result date="2020-04-12" statvalue="186" type="checkstyle"/>
+        <result date="2020-04-12" statvalue="21" type="pmd"/>
+        <result date="2020-04-12" statvalue="37" type="cobertura-line"/>
+        <result date="2020-04-12" statvalue="91" type="cobertura-line"/>
+        <result date="2020-04-12" statvalue="14" type="cobertura-branch"/>
+        <result date="2020-04-12" statvalue="66" type="cobertura-branch"/>
     </file>
     <file id="ca_etsmtl_log240_financej_Ledger.java" path="ca/etsmtl/log240/financej/Ledger.java">
         <result date="2020-03-10" statvalue="343" type="checkstyle"/>
         <result date="2020-03-10" statvalue="28" type="pmd"/>
+        <result date="2020-04-11" statvalue="343" type="checkstyle"/>
+        <result date="2020-04-11" statvalue="28" type="pmd"/>
+        <result date="2020-04-11" statvalue="91" type="cobertura-line"/>
+        <result date="2020-04-11" statvalue="34" type="cobertura-line"/>
+        <result date="2020-04-11" statvalue="68" type="cobertura-branch"/>
+        <result date="2020-04-11" statvalue="13" type="cobertura-branch"/>
+        <result date="2020-04-12" statvalue="343" type="checkstyle"/>
+        <result date="2020-04-12" statvalue="28" type="pmd"/>
+        <result date="2020-04-12" statvalue="91" type="cobertura-line"/>
+        <result date="2020-04-12" statvalue="34" type="cobertura-line"/>
+        <result date="2020-04-12" statvalue="68" type="cobertura-branch"/>
+        <result date="2020-04-12" statvalue="13" type="cobertura-branch"/>
     </file>
     <file id="ca_etsmtl_log240_financej_Reports.java" path="ca/etsmtl/log240/financej/Reports.java">
         <result date="2020-03-10" statvalue="192" type="checkstyle"/>
         <result date="2020-03-10" statvalue="21" type="pmd"/>
+        <result date="2020-04-11" statvalue="192" type="checkstyle"/>
+        <result date="2020-04-11" statvalue="21" type="pmd"/>
+        <result date="2020-04-11" statvalue="71" type="cobertura-line"/>
+        <result date="2020-04-12" statvalue="192" type="checkstyle"/>
+        <result date="2020-04-12" statvalue="21" type="pmd"/>
+        <result date="2020-04-12" statvalue="71" type="cobertura-line"/>
+    </file>
+    <file id="ca_etsmtl_log240_db_DBUtils.java" path="ca/etsmtl/log240/db/DBUtils.java">
+        <result date="2020-04-11" statvalue="41" type="checkstyle"/>
+        <result date="2020-04-11" statvalue="19" type="pmd"/>
+        <result date="2020-04-11" statvalue="23" type="cobertura-line"/>
+        <result date="2020-04-12" statvalue="41" type="checkstyle"/>
+        <result date="2020-04-12" statvalue="19" type="pmd"/>
+        <result date="2020-04-12" statvalue="23" type="cobertura-line"/>
+    </file>
+    <file id="ca_etsmtl_log240_db_DerbyUtils.java" path="ca/etsmtl/log240/db/DerbyUtils.java">
+        <result date="2020-04-11" statvalue="40" type="checkstyle"/>
+        <result date="2020-04-11" statvalue="7" type="pmd"/>
+        <result date="2020-04-11" statvalue="51" type="cobertura-line"/>
+        <result date="2020-04-11" statvalue="44" type="cobertura-branch"/>
+        <result date="2020-04-12" statvalue="40" type="checkstyle"/>
+        <result date="2020-04-12" statvalue="7" type="pmd"/>
+        <result date="2020-04-12" statvalue="51" type="cobertura-line"/>
+        <result date="2020-04-12" statvalue="44" type="cobertura-branch"/>
+    </file>
+    <file id="ca_etsmtl_log240_financej_AccountDAO.java" path="ca/etsmtl/log240/financej/AccountDAO.java">
+        <result date="2020-04-11" statvalue="28" type="checkstyle"/>
+        <result date="2020-04-11" statvalue="55" type="cobertura-line"/>
+        <result date="2020-04-11" statvalue="50" type="cobertura-branch"/>
+        <result date="2020-04-12" statvalue="28" type="checkstyle"/>
+        <result date="2020-04-12" statvalue="55" type="cobertura-line"/>
+        <result date="2020-04-12" statvalue="50" type="cobertura-branch"/>
+    </file>
+    <file id="ca_etsmtl_log240_financej_AccountDialog.java" path="ca/etsmtl/log240/financej/AccountDialog.java">
+        <result date="2020-04-11" statvalue="114" type="checkstyle"/>
+        <result date="2020-04-11" statvalue="8" type="pmd"/>
+        <result date="2020-04-11" statvalue="95" type="cobertura-line"/>
+        <result date="2020-04-11" statvalue="66" type="cobertura-branch"/>
+        <result date="2020-04-12" statvalue="114" type="checkstyle"/>
+        <result date="2020-04-12" statvalue="8" type="pmd"/>
+        <result date="2020-04-12" statvalue="95" type="cobertura-line"/>
+        <result date="2020-04-12" statvalue="77" type="cobertura-branch"/>
+    </file>
+    <file id="ca_etsmtl_log240_financej_AccountTableModel.java" path="ca/etsmtl/log240/financej/AccountTableModel.java">
+        <result date="2020-04-11" statvalue="44" type="checkstyle"/>
+        <result date="2020-04-11" statvalue="65" type="cobertura-line"/>
+        <result date="2020-04-11" statvalue="50" type="cobertura-branch"/>
+        <result date="2020-04-12" statvalue="44" type="checkstyle"/>
+        <result date="2020-04-12" statvalue="65" type="cobertura-line"/>
+        <result date="2020-04-12" statvalue="50" type="cobertura-branch"/>
+    </file>
+    <file id="ca_etsmtl_log240_financej_CategoryDAO.java" path="ca/etsmtl/log240/financej/CategoryDAO.java">
+        <result date="2020-04-11" statvalue="21" type="cobertura-line"/>
+        <result date="2020-04-11" statvalue="12" type="cobertura-branch"/>
+        <result date="2020-04-12" statvalue="21" type="cobertura-line"/>
+        <result date="2020-04-12" statvalue="12" type="cobertura-branch"/>
     </file>
 </qalab>
