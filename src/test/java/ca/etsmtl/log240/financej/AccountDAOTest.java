@@ -2,11 +2,12 @@ package ca.etsmtl.log240.financej;
 
 import ca.etsmtl.log240.db.DerbyUtils;
 import org.junit.After;
-import org.junit.AfterClass;
 import org.junit.Before;
 import org.junit.Test;
 
+import java.sql.Connection;
 import java.sql.SQLException;
+import java.sql.Statement;
 import java.util.List;
 
 import static org.junit.Assert.*;
@@ -19,9 +20,15 @@ public class AccountDAOTest {
 
     }
 
-    @AfterClass
-    public static void tearDown() throws Exception {
-        DerbyUtils.getInstance().shutdownDB();
+    @After
+    public void tearDown() throws Exception {
+        deleteAllAccounts();
+    }
+
+    private void deleteAllAccounts() throws Exception {
+        Connection conn = DerbyUtils.getInstance().getConnection();
+        Statement statement = conn.createStatement();
+        statement.executeUpdate("DELETE FROM account");
     }
 
     @Test
@@ -32,7 +39,7 @@ public class AccountDAOTest {
 
             accountDAO.add(name, description);
 
-            assertEquals(accountDAO.getAccount(name).getDescription(), description);
+            assertEquals(description, accountDAO.getAccount(name).getDescription());
         } catch (SQLException e) {
             fail();
         }
@@ -74,7 +81,7 @@ public class AccountDAOTest {
 
             accountDAO.add(name, description);
 
-            assertEquals(accountDAO.getAccount(name).getDescription(), description);
+            assertEquals(description, accountDAO.getAccount(name).getDescription());
 
             accountDAO.remove(name);
         } catch (SQLException e) {
@@ -105,7 +112,7 @@ public class AccountDAOTest {
             accountDAO.add(name, oldDescription);
             accountDAO.update(name, newDescription);
 
-            assertEquals(accountDAO.getAccount(name).getDescription(), newDescription);
+            assertEquals(newDescription, accountDAO.getAccount(name).getDescription());
 
             accountDAO.remove(name);
         } catch (SQLException e) {
@@ -123,7 +130,7 @@ public class AccountDAOTest {
             accountDAO.add(name, oldDescription);
             accountDAO.update(name, newDescription);
 
-            assertEquals(accountDAO.getAccount(name).getDescription(), newDescription);
+            assertEquals(newDescription, accountDAO.getAccount(name).getDescription());
         } catch (SQLException e) {
             fail();
         }
@@ -141,8 +148,9 @@ public class AccountDAOTest {
             accountDAO.add(account2Name, account2Description);
 
             List<Account> accounts = accountDAO.getAllAccounts();
-            assertEquals(accounts.get(0).getName(), account1Name);
-            assertEquals(accounts.get(1).getName(), account2Name);
+
+            assertEquals(account1Name, accounts.get(0).getName());
+            assertEquals(account2Name, accounts.get(1).getName());
         } catch (SQLException e) {
             fail();
         }
