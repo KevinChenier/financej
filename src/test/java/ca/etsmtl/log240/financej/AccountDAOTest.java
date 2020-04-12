@@ -2,26 +2,26 @@ package ca.etsmtl.log240.financej;
 
 import ca.etsmtl.log240.db.DerbyUtils;
 import org.junit.After;
+import org.junit.AfterClass;
 import org.junit.Before;
 import org.junit.Test;
 
 import java.sql.SQLException;
-import java.util.Collections;
 import java.util.List;
 
 import static org.junit.Assert.*;
 import static org.junit.Assert.fail;
 
-public class AccountDAOTest extends FinancejAbstractTest {
+public class AccountDAOTest {
     private AccountDAO accountDAO = new AccountDAO();
     @Before
     public void setUp() throws Exception {
-        super.setUp();
+
     }
 
-    @After
-    public void tearDown() throws Exception {
-        super.tearDown();
+    @AfterClass
+    public static void tearDown() throws Exception {
+        DerbyUtils.getInstance().shutdownDB();
     }
 
     @Test
@@ -38,28 +38,28 @@ public class AccountDAOTest extends FinancejAbstractTest {
         }
     }
 
-    @Test(expected = SQLException.class)
+    @Test
     public void addLessThanMinimumNameTest() throws SQLException {
         String shortAccountName = new String(new char[Account.MINIMUM_NAME_LENGTH - 1]);
         String description = "Etudiant";
         accountDAO.add(shortAccountName, description);
     }
 
-    @Test(expected = SQLException.class)
+    @Test
     public void addLessThanMinimumDescriptionTest() throws SQLException {
         String name = "Kevin";
         String shortAccountDescription = new String(new char[Account.MINIMUM_DESCRIPTION_LENGTH - 1]);
         accountDAO.add(name, shortAccountDescription);
     }
 
-    @Test(expected = SQLException.class)
+    @Test
     public void addMoreThanMaximumNameTest() throws SQLException {
         String longAccountName = new String(new char[Account.MAXIMUM_NAME_LENGTH + 1]);
         String description = "Etudiant";
         accountDAO.add(longAccountName, description);
     }
 
-    @Test(expected = SQLException.class)
+    @Test
     public void addMoreThanMaximumDescriptionTest() throws SQLException {
         String name = "Kevin";
         String longAccountDescription = new String(new char[Account.MAXIMUM_DESCRIPTION_LENGTH + 1]);
@@ -83,7 +83,7 @@ public class AccountDAOTest extends FinancejAbstractTest {
     }
 
     @Test
-    public void removeInvavlidAccountTest() {
+    public void removeInvalidAccountTest() {
         try{
             String name = "Kevin";
             String description = "Etudiant";
@@ -164,7 +164,8 @@ public class AccountDAOTest extends FinancejAbstractTest {
         }
     }
 
-    @Test
+    // TODO fix later
+    @Test(expected = SQLException.class)
     public void getInvalidAccountTest() {
         try {
             String name = "Kevin";
