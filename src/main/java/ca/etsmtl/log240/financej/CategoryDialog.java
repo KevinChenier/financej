@@ -177,6 +177,14 @@ public class CategoryDialog extends JDialog {
         
         BudgetValue = BudgetTextField.getText();
         Budget = Float.valueOf(BudgetValue.trim()).floatValue();
+        if(isEmptyJTextField(NameTextField) || isEmptyJTextField(DescriptionTextField) ||
+                isEmptyJTextField(BudgetTextField)) {
+            JOptionPane.showMessageDialog(this,
+                    "Error Adding category to database.  Make sure the category, " +
+                            "does not have empty fields.",
+                    "Error", JOptionPane.ERROR_MESSAGE);
+            return;
+        }
         
         ReturnCode = dataModel.addCategory(NameTextField.getText(), DescriptionTextField.getText(), Budget);
         System.out.println(ReturnCode);
@@ -190,6 +198,10 @@ public class CategoryDialog extends JDialog {
                     "Error", JOptionPane.ERROR_MESSAGE);
         }
 }//GEN-LAST:event_AddCategoryButtonActionPerformed
+
+    private boolean isEmptyJTextField(JTextField jTextField) {
+        return jTextField.getText().length() == 0;
+    }
 
     private void CloseButtonActionPerformed(ActionEvent evt) {//GEN-FIRST:event_CloseButtonActionPerformed
         setVisible(false);
