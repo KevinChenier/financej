@@ -38,7 +38,7 @@ public class CategoryDAO {
     public void delete(String categoryName) throws SQLException {
         Statement s;
         String SQLString;
-        if (conn != null) {
+        if (isConnection()) {
             s = conn.createStatement();
             SQLString = "DELETE FROM category WHERE name = '" + categoryName + "'";
             System.out.println(SQLString);
@@ -60,6 +60,34 @@ public class CategoryDAO {
         }
 
         return nameCount;
+    }
+
+    public String getCategoryDescriptionByName(String categoryName) throws SQLException {
+        ResultSet AccountResult;
+        Statement s;
+        String description = "";
+        if (isConnection()) {
+            s = conn.createStatement();
+            AccountResult = s.executeQuery("select description from category where name = " + categoryName);
+            while (AccountResult.next()) {
+                description = AccountResult.getString(1);
+            }
+        }
+        return description;
+    }
+
+    public String getCategoryBudgetByName(String categoryName) throws SQLException {
+        ResultSet AccountResult;
+        Statement s;
+        String budget = "";
+        if (isConnection()) {
+            s = conn.createStatement();
+            AccountResult = s.executeQuery("select budget from category where name = " + categoryName);
+            while (AccountResult.next()) {
+                budget = AccountResult.getString(1);
+            }
+        }
+        return budget;
     }
 
     public ResultSet getAllCategoryOrderByName() throws SQLException {
