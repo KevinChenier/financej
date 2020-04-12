@@ -40,7 +40,7 @@ public class AccountTableModel extends AbstractTableModel {
      * editable. Note that the data/cell address is constant,
        no matter where the cell appears onscreen.
      */
-    public boolean isCellEditable(int row, int col) { return col == 0 ? false : true; }
+    public boolean isCellEditable(int row, int col) { return col == 1; }
 
     public void setValueAt(Object value, int row, int col) {
         try {
