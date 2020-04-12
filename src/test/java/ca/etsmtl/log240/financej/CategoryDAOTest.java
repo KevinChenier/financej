@@ -119,4 +119,17 @@ public class CategoryDAOTest {
         assertTrue(categoryDAO.isConnection());
         assertTrue(DerbyUtils.getInstance().getConnection() != null);
     }
+
+    @Test
+    public void testGetCategoryBudgetByName() {
+        CategoryDAO categoryDAO = new CategoryDAO();
+        try {
+            categoryDAO.add("aaa", "Description", 236);
+            String budget = categoryDAO.getCategoryBudgetByName("aaa");
+            assertEquals(budget, "236");
+        }
+        catch(Exception e) {
+            System.out.println(e);
+        };
+    }
 }
