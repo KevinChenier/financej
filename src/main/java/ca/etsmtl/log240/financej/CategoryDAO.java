@@ -19,20 +19,19 @@ public class CategoryDAO {
     }
 
     public void updateDescription(String desc, String categoryName) throws SQLException {
-        Statement s = conn.createStatement();
-        String SQLString = "update category set description ='" + (String) desc + "' where name = '"
-                + categoryName + "'";
-        System.out.println(SQLString);
-        s.execute(SQLString);
-
+        PreparedStatement psInsert;
+        psInsert = conn.prepareStatement("update category set description = ? where name = ?");
+        psInsert.setString(1, desc);
+        psInsert.setString(2, categoryName);
+        psInsert.executeUpdate();
     }
 
     public void updateBudget(String budget, String categoryName) throws SQLException {
-        Statement s = conn.createStatement();
-        String SQLString = "update category set budget = " + budget + " where name = '"
-                + categoryName + "'";
-        System.out.println(SQLString);
-        s.execute(SQLString);
+        PreparedStatement psInsert;
+        psInsert = conn.prepareStatement("update category set budget = ? where name = ?");
+        psInsert.setString(1, budget);
+        psInsert.setString(2, categoryName);
+        psInsert.executeUpdate();
     }
 
     public void delete(String categoryName) throws SQLException {
@@ -68,7 +67,7 @@ public class CategoryDAO {
         String description = "";
         if (isConnection()) {
             s = conn.createStatement();
-            AccountResult = s.executeQuery("select description from category where name = " + categoryName);
+            AccountResult = s.executeQuery("select description from category where name = '" + categoryName + "'");
             while (AccountResult.next()) {
                 description = AccountResult.getString(1);
             }
@@ -82,7 +81,7 @@ public class CategoryDAO {
         String budget = "";
         if (isConnection()) {
             s = conn.createStatement();
-            AccountResult = s.executeQuery("select budget from category where name = " + categoryName);
+            AccountResult = s.executeQuery("select budget from category where name = '" + categoryName + "'");
             while (AccountResult.next()) {
                 budget = AccountResult.getString(1);
             }

@@ -13,6 +13,7 @@ import java.sql.Statement;
 import static org.junit.Assert.*;
 
 public class CategoryDAOTest {
+    private CategoryDAO categoryDAO = new CategoryDAO();
 
     @Before
     public void setUp() throws Exception {
@@ -20,22 +21,17 @@ public class CategoryDAOTest {
     }
 
 
-    @AfterClass
-    public static void tearDown() throws Exception {
-        deleteAllCategories();
-        DerbyUtils.getInstance().shutdownDB();
-    }
-
-    private static void deleteAllCategories() throws Exception {
+    @After
+    public void tearDown() throws Exception {
         Connection conn = DerbyUtils.getInstance().getConnection();
         Statement statement = conn.createStatement();
         statement.executeUpdate("DELETE FROM category");
     }
 
 
+
     @Test
     public void testAdd() {
-        CategoryDAO categoryDAO = new CategoryDAO();
         try {
             int countBefore = Integer.valueOf(categoryDAO.getNameCount());
             categoryDAO.add("Category Name", "Description", 55f);
@@ -49,8 +45,8 @@ public class CategoryDAOTest {
 
     @Test
     public void testUpdateDescription() {
-        CategoryDAO categoryDAO = new CategoryDAO();
         try {
+            categoryDAO.add("Category Name", "Description", 20);
             categoryDAO.updateDescription("new description", "Category Name");
             String newDescription = categoryDAO.getCategoryDescriptionByName("Category Name");
             assertEquals("new description", newDescription);
@@ -62,11 +58,11 @@ public class CategoryDAOTest {
 
     @Test
     public void testUpdateBudget() {
-        CategoryDAO categoryDAO = new CategoryDAO();
         try {
+            categoryDAO.add("Category Name", "Description", 20);
             categoryDAO.updateBudget("155", "Category Name");
-            String newBudget = categoryDAO.getCategoryDescriptionByName("Category Name");
-            assertEquals("155", newBudget);
+            String newBudget = categoryDAO.getCategoryBudgetByName("Category Name");
+            assertEquals("155.0", newBudget);
         }
         catch(Exception e) {
             System.out.println(e);
@@ -75,7 +71,6 @@ public class CategoryDAOTest {
 
     @Test
     public void testDeleteCategory() {
-        CategoryDAO categoryDAO = new CategoryDAO();
         try {
             categoryDAO.add("temp", "Description", 55f);
             int countBefore = Integer.valueOf(categoryDAO.getNameCount());
@@ -90,9 +85,7 @@ public class CategoryDAOTest {
 
     @Test
     public void testGetNameCount() {
-        CategoryDAO categoryDAO = new CategoryDAO();
         try {
-            deleteAllCategories();
             categoryDAO.add("Category1", "Description", 15f);
             categoryDAO.add("Category2", "Description", 25f);
             categoryDAO.add("Category3", "Description", 35f);
@@ -106,11 +99,9 @@ public class CategoryDAOTest {
 
     @Test
     public void testGetAllCategoryOrderByName() {
-        CategoryDAO categoryDAO = new CategoryDAO();
         try {
             ResultSet categories = categoryDAO.getAllCategoryOrderByName();
             int count = Integer.valueOf(categoryDAO.getNameCount());
-            categories.last();
             assertEquals(count, categories.getRow());
         }
         catch(Exception e) {
@@ -120,14 +111,12 @@ public class CategoryDAOTest {
 
     @Test
     public void testIsConnection() {
-        CategoryDAO categoryDAO = new CategoryDAO();
         assertTrue(categoryDAO.isConnection());
         assertTrue(DerbyUtils.getInstance().getConnection() != null);
     }
 
     @Test
     public void testGetCategoryDescriptionByName() {
-        CategoryDAO categoryDAO = new CategoryDAO();
         try {
             categoryDAO.add("bbb", "description X", 236);
             String description = categoryDAO.getCategoryDescriptionByName("bbb");
@@ -140,11 +129,10 @@ public class CategoryDAOTest {
 
     @Test
     public void testGetCategoryBudgetByName() {
-        CategoryDAO categoryDAO = new CategoryDAO();
         try {
             categoryDAO.add("aaa", "Description", 236);
             String budget = categoryDAO.getCategoryBudgetByName("aaa");
-            assertEquals(budget, "236");
+            assertEquals(budget, "236.0");
         }
         catch(Exception e) {
             System.out.println(e);
