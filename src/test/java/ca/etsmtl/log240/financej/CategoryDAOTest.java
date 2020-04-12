@@ -22,10 +22,14 @@ public class CategoryDAOTest {
 
     @AfterClass
     public static void tearDown() throws Exception {
+        deleteAllCategories();
+        DerbyUtils.getInstance().shutdownDB();
+    }
+
+    private static void deleteAllCategories() throws Exception {
         Connection conn = DerbyUtils.getInstance().getConnection();
         Statement statement = conn.createStatement();
         statement.executeUpdate("DELETE FROM category");
-       DerbyUtils.getInstance().shutdownDB();
     }
 
 
@@ -88,11 +92,12 @@ public class CategoryDAOTest {
     public void testGetNameCount() {
         CategoryDAO categoryDAO = new CategoryDAO();
         try {
+            deleteAllCategories();
             categoryDAO.add("Category1", "Description", 15f);
             categoryDAO.add("Category2", "Description", 25f);
             categoryDAO.add("Category3", "Description", 35f);
             int count = Integer.valueOf(categoryDAO.getNameCount());
-            assertEquals(4, count);
+            assertEquals(3, count);
         }
         catch(Exception e) {
             System.out.println(e);
@@ -118,6 +123,19 @@ public class CategoryDAOTest {
         CategoryDAO categoryDAO = new CategoryDAO();
         assertTrue(categoryDAO.isConnection());
         assertTrue(DerbyUtils.getInstance().getConnection() != null);
+    }
+
+    @Test
+    public void testGetCategoryDescriptionByName() {
+        CategoryDAO categoryDAO = new CategoryDAO();
+        try {
+            categoryDAO.add("bbb", "description X", 236);
+            String description = categoryDAO.getCategoryDescriptionByName("bbb");
+            assertEquals(description, "description X");
+        }
+        catch(Exception e) {
+            System.out.println(e);
+        };
     }
 
     @Test
