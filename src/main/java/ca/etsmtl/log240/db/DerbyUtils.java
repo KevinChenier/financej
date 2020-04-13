@@ -98,6 +98,12 @@ public class DerbyUtils {
         }
     }
 
+    public void startupDB() {
+        loadDBDriver();
+        createDBConnection();
+        createDBTables();
+    }
+
     public void shutdownDB() {
         try {
             connnection.close();

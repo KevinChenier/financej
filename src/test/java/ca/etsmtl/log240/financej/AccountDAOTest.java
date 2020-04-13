@@ -22,7 +22,9 @@ public class AccountDAOTest {
 
     @After
     public void tearDown() throws Exception {
-        deleteAllAccounts();
+        Connection conn = DerbyUtils.getInstance().getConnection();
+        Statement statement = conn.createStatement();
+        statement.executeUpdate("DELETE FROM account");
     }
 
     private void deleteAllAccounts() throws Exception {
@@ -173,9 +175,8 @@ public class AccountDAOTest {
     }
 
     // TODO fix later
-    @Test(expected = SQLException.class)
-    public void getInvalidAccountTest() {
-        try {
+    @Test(expected = NullPointerException.class)
+    public void getInvalidAccountTest() throws SQLException {
             String name = "Kevin";
             String description = "Etudiant";
 
@@ -184,9 +185,6 @@ public class AccountDAOTest {
             Account account = accountDAO.getAccount("Mauvais");
 
             assertEquals(account.getName(), name);
-        } catch (SQLException e) {
-            fail();
-        }
     }
 
 

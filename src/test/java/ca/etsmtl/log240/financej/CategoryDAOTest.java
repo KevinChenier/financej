@@ -1,24 +1,17 @@
 package ca.etsmtl.log240.financej;
 
 import ca.etsmtl.log240.db.DerbyUtils;
-import org.junit.After;
-import org.junit.AfterClass;
-import org.junit.Before;
-import org.junit.Test;
+import junit.framework.AssertionFailedError;
+import org.junit.*;
+import sun.awt.windows.WPrinterJob;
 
-import java.sql.Connection;
-import java.sql.ResultSet;
-import java.sql.Statement;
+import java.sql.*;
 
 import static org.junit.Assert.*;
 
 public class CategoryDAOTest {
     private CategoryDAO categoryDAO = new CategoryDAO();
-
-    @Before
-    public void setUp() throws Exception {
-
-    }
+    DerbyUtils derbyUtils = DerbyUtils.getInstance();
 
 
     @After
@@ -138,4 +131,75 @@ public class CategoryDAOTest {
             System.out.println(e);
         };
     }
+
+    @Test(expected = SQLException.class)
+    public void testDeleteCategoryClosedConnection() throws SQLException {
+        try {
+            DerbyUtils.getInstance().shutdownDB();
+            categoryDAO.delete("temp");
+        }
+        catch (Exception e) {
+            throw new SQLException();
+        }
+        finally {
+            derbyUtils.startupDB();
+        }
+    }
+
+    @Test(expected = SQLException.class)
+    public void testGetNameCountClosedConnection() throws SQLException {
+        try {
+            DerbyUtils.getInstance().shutdownDB();
+            categoryDAO.getNameCount();
+        }
+        catch (Exception e) {
+            throw new SQLException();
+        }
+        finally {
+            derbyUtils.startupDB();
+        }
+    }
+
+    @Test(expected = SQLException.class)
+    public void testGetCategoryDescriptionByNameClosedConnection() throws SQLException {
+        try {
+            DerbyUtils.getInstance().shutdownDB();
+            categoryDAO.getCategoryDescriptionByName("test");
+        }
+        catch (Exception e) {
+            throw new SQLException();
+        }
+        finally {
+            derbyUtils.startupDB();
+        }
+    }
+
+    @Test(expected = SQLException.class)
+    public void testGetCategoryBudgetByNameClosedConnection() throws SQLException {
+        try {
+            DerbyUtils.getInstance().shutdownDB();
+            categoryDAO.getCategoryBudgetByName("test");
+        }
+        catch (Exception e) {
+            throw new SQLException();
+        }
+        finally {
+            derbyUtils.startupDB();
+        }
+    }
+
+    @Test(expected = SQLException.class)
+    public void testIsConnectionClosedConnection() throws SQLException {
+        derbyUtils.shutdownDB();
+        try {
+            assertFalse(categoryDAO.isConnection());
+        }
+        catch(Throwable e) {
+            throw new SQLException();
+        }
+        finally {
+            derbyUtils.startupDB();
+        }
+    }
+
 }

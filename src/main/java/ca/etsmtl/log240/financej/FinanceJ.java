@@ -59,9 +59,7 @@ public class FinanceJ extends JFrame {
     /** Creates new form FinanceJ */
     public FinanceJ() {
         DerbyUtils derbyUtils = DerbyUtils.getInstance();
-        derbyUtils.loadDBDriver();
-        derbyUtils.createDBConnection();
-        derbyUtils.createDBTables();
+        derbyUtils.startupDB();
 
         initComponents();
 
