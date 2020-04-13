@@ -5,11 +5,7 @@ import org.uispec4j.Trigger;
 import org.uispec4j.Window;
 import org.uispec4j.interception.WindowHandler;
 import org.uispec4j.interception.WindowInterceptor;
-import sun.awt.windows.WPrinterJob;
 
-import java.sql.Connection;
-import java.sql.DriverManager;
-import java.sql.Statement;
 
 public class AccountTest extends FinancejAbstractTest {
     private final int MAX_SIZE_NAME= 50;
