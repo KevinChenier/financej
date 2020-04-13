@@ -68,6 +68,12 @@ class AccountTableModel extends AbstractTableModel {
     }
 
     public int AddAccount(String Name, String Description) {
+        if (Name.length() < 3 || Description.length() < 3) {
+            return 0;
+        }
+        if (Name.length() > 250 || Description.length()  > 250 ) {
+            return 0;
+        }
         int querySuccessful = dao.create(Name, Description);
         if(querySuccessful == 0) {
             fireTableRowsInserted(getRowCount() + 1, getRowCount() + 1);

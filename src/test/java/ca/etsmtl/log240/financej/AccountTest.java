@@ -58,10 +58,6 @@ public class AccountTest extends FinancejAbstractTest {
                         window.getTextBox("DESC_TEXT_FIELD").setText("Description");
                         window.getButton("Add Account").click();
                         assertEquals(accountsTable.getRowCount(), initialRowCount);
-                        // supprimer le compte cree precedemment en cherchant le nom
-                        accountsTable.selectRowsWithText(0, "");
-                        window.getButton("Delete Account").click();
-                        assertEquals(accountsTable.getRowCount(), initialRowCount);
                         // retourner un "trigger" qui ferme la fenêtre modale
                         return window.getButton("Close").triggerClick();
                     }
@@ -79,10 +75,6 @@ public class AccountTest extends FinancejAbstractTest {
                         window.getTextBox("NAME_TEXT_FIELD").setText("Nom Name");
                         window.getTextBox("DESC_TEXT_FIELD").setText("");
                         window.getButton("Add Account").click();
-                        assertEquals(accountsTable.getRowCount(), initialRowCount);
-                        // supprimer le compte cree precedemment en cherchant le nom
-                        accountsTable.selectRowsWithText(0, "Nom Name");
-                        window.getButton("Delete Account").click();
                         assertEquals(accountsTable.getRowCount(), initialRowCount);
                         // retourner un "trigger" qui ferme la fenêtre modale
                         return window.getButton("Close").triggerClick();
@@ -102,10 +94,6 @@ public class AccountTest extends FinancejAbstractTest {
                         window.getTextBox("DESC_TEXT_FIELD").setText("Description");
                         window.getButton("Add Account").click();
                         assertEquals(accountsTable.getRowCount(), initialRowCount);
-                        // supprimer le compte cree precedemment en cherchant le nom
-                        accountsTable.selectRowsWithText(0, "ab");
-                        window.getButton("Delete Account").click();
-                        assertEquals(accountsTable.getRowCount(), initialRowCount);
                         // retourner un "trigger" qui ferme la fenêtre modale
                         return window.getButton("Close").triggerClick();
                     }
@@ -123,10 +111,6 @@ public class AccountTest extends FinancejAbstractTest {
                         window.getTextBox("NAME_TEXT_FIELD").setText("Nom Name");
                         window.getTextBox("DESC_TEXT_FIELD").setText("de");
                         window.getButton("Add Account").click();
-                        assertEquals(accountsTable.getRowCount(), initialRowCount);
-                        // supprimer le compte cree precedemment en cherchant le nom
-                        accountsTable.selectRowsWithText(0, "Nom Name");
-                        window.getButton("Delete Account").click();
                         assertEquals(accountsTable.getRowCount(), initialRowCount);
                         // retourner un "trigger" qui ferme la fenêtre modale
                         return window.getButton("Close").triggerClick();
@@ -153,10 +137,6 @@ public class AccountTest extends FinancejAbstractTest {
                         window.getTextBox("DESC_TEXT_FIELD").setText("Description");
                         window.getButton("Add Account").click();
                         assertEquals(accountsTable.getRowCount(), initialRowCount);
-                        // supprimer le compte cree precedemment en cherchant le nom
-                        accountsTable.selectRowsWithText(0, bufferChaine.toString());
-                        window.getButton("Delete Account").click();
-                        assertEquals(accountsTable.getRowCount(), initialRowCount);
                         // retourner un "trigger" qui ferme la fenêtre modale
                         return window.getButton("Close").triggerClick();
                     }
@@ -181,10 +161,6 @@ public class AccountTest extends FinancejAbstractTest {
                         window.getTextBox("NAME_TEXT_FIELD").setText("Nom Name");
                         window.getTextBox("DESC_TEXT_FIELD").setText(bufferChaine.toString());
                         window.getButton("Add Account").click();
-                        assertEquals(accountsTable.getRowCount(), initialRowCount);
-                        // supprimer le compte cree precedemment en cherchant le nom
-                        accountsTable.selectRowsWithText(0, "Nom Name");
-                        window.getButton("Delete Account").click();
                         assertEquals(accountsTable.getRowCount(), initialRowCount);
                         // retourner un "trigger" qui ferme la fenêtre modale
                         return window.getButton("Close").triggerClick();

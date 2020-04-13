@@ -53,7 +53,7 @@
 
   <issueManagement>
     <system>Trac</system>
-    <url>http://log240-20201-30.logti.etsmtl.ca/trac/</url>
+    <url>http://log240-20201-30.logti.etsmtl.ca/trac1/</url>
   </issueManagement>
 
   <dependencies>
@@ -84,7 +84,7 @@
       </snapshots>
       <id>central</id>
       <name>Central Repository</name>
-      <url>http://repo.maven.apache.org/maven2</url>
+      <url>https://repo.maven.apache.org/maven2</url>
     </repository>
   </repositories>
 

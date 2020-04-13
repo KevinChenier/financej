@@ -17,7 +17,6 @@ public class AccountDAO {
     public int create(String Name, String Description){
         int ErrorCode = 0;
         PreparedStatement psInsert;
-        // TODO
         try {
             psInsert = conn.prepareStatement("insert into account(name, description) values(?,?)");
             psInsert.setString(1, Name);
@@ -101,7 +100,7 @@ public class AccountDAO {
         if (conn != null) {
             try {
                 s = conn.createStatement();
-                SQLString = "DELETE FROM account WHERE '"+field+"' = '" + value + "'";
+                SQLString = "DELETE FROM account WHERE "+field+" = '" + value + "'";
                 System.out.println(SQLString);
                 s.executeUpdate(SQLString);
                 return true;
