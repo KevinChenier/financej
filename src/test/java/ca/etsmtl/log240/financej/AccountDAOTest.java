@@ -22,9 +22,7 @@ public class AccountDAOTest {
 
     @After
     public void tearDown() throws Exception {
-        Connection conn = DerbyUtils.getInstance().getConnection();
-        Statement statement = conn.createStatement();
-        statement.executeUpdate("DELETE FROM account");
+        deleteAllAccounts();
     }
 
     private void deleteAllAccounts() throws Exception {
@@ -61,7 +59,7 @@ public class AccountDAOTest {
         accountDAO.add(name, shortAccountDescription);
     }
 
-    @Test
+    @Test(expected = SQLException.class)
     public void addMoreThanMaximumNameTest() throws SQLException {
         String longAccountName = new String(new char[Account.MAXIMUM_NAME_LENGTH + 1]);
         String description = "Etudiant";
