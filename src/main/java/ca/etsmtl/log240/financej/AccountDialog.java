@@ -1,6 +1,6 @@
 package ca.etsmtl.log240.financej;
 /*
- * Account.java
+ * AccountDialog.java
  *
  * Created on March 5, 2008, 11:08 PM
  */
@@ -14,13 +14,13 @@ import javax.swing.*;
  *
  * @author  rovitotv
  */
-public class Account extends JDialog {
+public class AccountDialog extends JDialog {
 
     private Connection conn = null;
     private AccountTableModel dataModel;
 
     /** Creates new form Account */
-    public Account(java.awt.Frame parent, boolean modal) {
+    public AccountDialog(java.awt.Frame parent, boolean modal) {
         super(parent, modal);
         initComponents();
         AccountListTable.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
@@ -205,7 +205,7 @@ public class Account extends JDialog {
         java.awt.EventQueue.invokeLater(new Runnable() {
 
             public void run() {
-                Account dialog = new Account(new JFrame(), true);
+                AccountDialog dialog = new AccountDialog(new JFrame(), true);
                 dialog.addWindowListener(new java.awt.event.WindowAdapter() {
 
                     public void windowClosing(java.awt.event.WindowEvent e) {

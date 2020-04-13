@@ -30,7 +30,7 @@ public class FinanceJ extends JFrame {
     private static Connection conn = null;
 
     private DerbyUtils derbyConnection;
-    private Account AccountDialog;
+    private AccountDialog AccountDialog;
     private Category CategoryDialog;
     private Ledger LedgerDialog;
     private Reports ReportsDialog;
@@ -77,7 +77,7 @@ public class FinanceJ extends JFrame {
         LedgerDialog.setVisible(false);
         LedgerDialog.SetDBConnection(conn);
 
-        AccountDialog = new Account(this, true);
+        AccountDialog = new AccountDialog(this, true);
         AccountDialog.setVisible(false);
         AccountDialog.SetDBConnection(conn);
         

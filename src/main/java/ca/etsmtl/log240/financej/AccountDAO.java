@@ -89,7 +89,7 @@ public class AccountDAO {
             s.execute(SQLString);
             return true;
         } catch (Throwable e) {
-            System.out.println(" . . . exception thrown: in setValueAt in Account.java");
+            System.out.println(" . . . exception thrown: in setValueAt in AccountDialog.java");
             e.printStackTrace();
             return false;
         }
