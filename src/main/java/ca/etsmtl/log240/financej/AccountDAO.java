@@ -1,17 +1,57 @@
 package ca.etsmtl.log240.financej;
 
-import java.sql.Connection;
+import javax.swing.table.AbstractTableModel;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.Statement;
 
-public class AccountDAO {
+public class AccountDAO extends AbstractTableModel {
 
     private Connection conn = null;
+    private String[] columnNames = {"Name", "Description"};
 
     public AccountDAO(Connection DBConn) {
         conn = DBConn;
+    }
+
+    public int getColumnCount() {
+        return columnNames.length;
+    }
+
+    public int getRowCount() {
+        return rowCount();
+    }
+
+    public String getColumnName(int col) {
+        return columnNames[col];
+    }
+
+    public Class getColumnClass(int c) {
+        return getValueAt(0, c).getClass();
+    }
+
+    /*
+     * Don't need to implement this method unless your table's
+     * editable.
+     */
+    public boolean isCellEditable(int row, int col) {
+        //Note that the data/cell address is constant,
+        //no matter where the cell appears onscreen.
+        if (col == 0) {
+            return false;
+        } else {
+            return true;
+        }
+    }
+
+    public void setValueAt(Object value, int row, int col) {
+        String AccountName;
+        AccountName = (String) getValueAt(row, 0);
+        boolean querySuccessful = update("description", (String)value, "name", AccountName);
+        if(querySuccessful) {
+            fireTableCellUpdated(row, col);
+        }
     }
 
     public int create(String Name, String Description){
@@ -93,6 +133,29 @@ public class AccountDAO {
             System.out.println(" . . . exception thrown: in setValueAt in AccountDialog.java");
             e.printStackTrace();
             return false;
+        }
+    }
+
+    public int AddAccount(String Name, String Description) {
+        if (Name.length() < 3 || Description.length() < 3) {
+            return 0;
+        }
+        if (Name.length() > 250 || Description.length()  > 250 ) {
+            return 0;
+        }
+        int querySuccessful = create(Name, Description);
+        if(querySuccessful == 0) {
+            fireTableRowsInserted(getRowCount() + 1, getRowCount() + 1);
+        }
+        return querySuccessful;
+    }
+
+    public void DeleteAccount(int row) {
+        String AccountName;
+        AccountName = (String) getValueAt(row, 0);
+        boolean querySuccessful = delete("name", AccountName);
+        if(querySuccessful) {
+            fireTableDataChanged();
         }
     }
 
