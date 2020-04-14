@@ -1,16 +1,11 @@
 package ca.etsmtl.log240.financej;
 
 import junit.framework.TestCase;
-import org.junit.jupiter.api.BeforeAll;
-import org.junit.jupiter.api.Test;
-import org.junit.jupiter.api.function.Executable;
+import org.junit.jupiter.api.*;
 
-import static org.junit.jupiter.api.Assertions.*;
-
-import java.sql.*;
 import java.sql.Connection;
-import static ca.etsmtl.log240.financej.FinanceJ.SQLExceptionPrint;
 
+@TestMethodOrder(MethodOrderer.OrderAnnotation.class)
 public class AccountDAOTest extends TestCase {
 
     // invalid DB settings
@@ -28,53 +23,81 @@ public class AccountDAOTest extends TestCase {
         derbyConnection = derbyConnection.init();
         conn = derbyConnection.getConnection();
         dao = new AccountDAO(conn);
-        dao.create("Jean", "Description");
-        dao.create("Jean2", "Description2");
     }
 
-    @Test public void testCreateAccount() {
+    @Test
+    @Order(1)
+    public void testCreateAccount() {
         int responseFirstAccount = dao.create("Jean", "Description");
         assertEquals( 0, responseFirstAccount);
         int responseSecondAccount = dao.create("Jean2", "Description2");
         assertEquals( 0, responseSecondAccount);
     }
 
-    @Test public void testRowCount() {
+    @Test
+    @Order(2)
+    public void testRowCount() {
         assertEquals(2, dao.rowCount());
     }
 
     @Test
+    @Order(3)
+    public void testGetRowCount() {
+        assertEquals(2, dao.rowCount());
+    }
+
+    @Test
+    @Order(5)
     public void testGetValueAt_Name_Row0() {
         assertEquals(dao.getValueAt(0,0), "Jean");
     }
 
     @Test
+    @Order(6)
     public void testGetValueAt_Description_Row0() {
         assertEquals(dao.getValueAt(1,1), "Description2");
     }
 
-    @Test public void testUpdateAccountValid() {
-        assertEquals(dao.update( "description", "Description3", "name","Jean"), true);
+    @Test
+    @Order(7)
+    public void testUpdateAccountValid() {
+        assertTrue(dao.update("description", "Description3", "name", "Jean"));
         assertEquals( "Description3", dao.getValueAt(0,1));
     }
 
-    @Test public void testUpdateAccountInvalid() {
-        assertEquals(dao.update( "description", "Description5", "name","Paul"), false);
-    }
-
-    @Test public void testUpdateDeleteAccountByName() {
-        assertEquals(true, dao.delete( "name", "Jean"));
-    }
-
-    @Test public void testUpdateDeleteAccountByDescription() {
-        assertEquals(true, dao.delete( "description", "Description2"));
-    }
-
-    @Test public void testUpdateDeleteAccountWithInexistantName() {
-        assertEquals(false, dao.delete( "name", "Paul"));
+    @Test
+    @Order(8)
+    public void testUpdateAccountInvalid() {
+        assertFalse(dao.update( "description", "Description5", "name","Paul"));
     }
 
     @Test
+    @Order(9)
+    public void testSetValueAt() {
+        dao.setValueAt("Description4", 0, 1);
+        assertEquals(dao.getValueAt(0,1), "Description4");
+    }
+
+    @Test
+    @Order(10)
+    public void testDeleteAccountByName() {
+        assertTrue(dao.delete( "name", "Jean"));
+    }
+
+    @Test
+    @Order(11)
+    public void testUpdateDeleteAccountByDescription() {
+        assertTrue(dao.delete( "description", "Description2"));
+    }
+
+    @Test
+    @Order(12)
+    public void testUpdateDeleteAccountWithInexistantName() {
+        assertFalse(dao.delete( "name", "Paul"));
+    }
+
+    @Test
+    @Order(13)
     public void testGetValueAt_nullConnexion() {
         AccountDAO dao2 = new AccountDAO(null);
         String result = (String)dao2.getValueAt(0,0);

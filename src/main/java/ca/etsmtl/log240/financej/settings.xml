@@ -37,8 +37,8 @@
       <properties>
         <!-- Parametres de la machine virtuelle et son administrateur -->
         <host>log240-20201-30.logti.etsmtl.ca</host>
-        <admin-username>system</admin-username>
-        <admin-password>SystemPass30</admin-password>
+        <admin-username>system1</admin-username>
+        <admin-password>SystemPass301</admin-password>
         
         <!-- Parametres de TRAC -->
         <trac-username>admin</trac-username>

@@ -7,7 +7,6 @@ package ca.etsmtl.log240.financej;
 
 import java.awt.event.*;
 import java.sql.*;
-import javax.swing.table.*;
 import javax.swing.*;
 
 /**
