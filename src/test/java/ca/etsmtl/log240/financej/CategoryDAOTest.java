@@ -1,9 +1,7 @@
 package ca.etsmtl.log240.financej;
 
 import ca.etsmtl.log240.db.DerbyUtils;
-import junit.framework.AssertionFailedError;
 import org.junit.*;
-import sun.awt.windows.WPrinterJob;
 
 import java.sql.*;
 
@@ -13,6 +11,10 @@ public class CategoryDAOTest {
     private CategoryDAO categoryDAO = new CategoryDAO();
     DerbyUtils derbyUtils = DerbyUtils.getInstance();
 
+    @Before
+    public void setUp() throws Exception {
+        derbyUtils.startupDB();
+    }
 
     @After
     public void tearDown() throws Exception {
@@ -20,8 +22,6 @@ public class CategoryDAOTest {
         Statement statement = conn.createStatement();
         statement.executeUpdate("DELETE FROM category");
     }
-
-
 
     @Test
     public void testAdd() {
