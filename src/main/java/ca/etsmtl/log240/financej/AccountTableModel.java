@@ -17,7 +17,7 @@ class AccountTableModel extends AbstractTableModel {
     }
 
     public int getRowCount() {
-        return dao.rowCount();
+        return dao.count();
     }
 
     public String getColumnName(int col) {
@@ -66,12 +66,12 @@ class AccountTableModel extends AbstractTableModel {
 
     public int AddAccount(String Name, String Description) {
         if (Name.length() < 3 || Description.length() < 3) {
-            return 0;
+            return 1;
         }
         if (Name.length() > 250 || Description.length()  > 250 ) {
-            return 0;
+            return 1;
         }
-        int querySuccessful = dao.create(Name, Description);
+        int querySuccessful = dao.create(new String[]{Name, Description});
         if(querySuccessful == 0) {
             fireTableRowsInserted(getRowCount() + 1, getRowCount() + 1);
         }

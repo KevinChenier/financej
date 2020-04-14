@@ -2,8 +2,9 @@ package ca.etsmtl.log240.financej;
 
 import junit.framework.TestCase;
 import org.junit.jupiter.api.*;
-
+import org.junit.jupiter.api.Assertions;
 import java.sql.Connection;
+import java.sql.ResultSet;
 
 @TestMethodOrder(MethodOrderer.OrderAnnotation.class)
 public class AccountDAOTest extends TestCase {
@@ -28,22 +29,22 @@ public class AccountDAOTest extends TestCase {
     @Test
     @Order(1)
     public void testCreateAccount() {
-        int responseFirstAccount = dao.create("Jean", "Description");
+        int responseFirstAccount = dao.create(new String[]{"Jean", "Description"});
         assertEquals( 0, responseFirstAccount);
-        int responseSecondAccount = dao.create("Jean2", "Description2");
+        int responseSecondAccount = dao.create(new String[]{"Jean2", "Description2"});
         assertEquals( 0, responseSecondAccount);
     }
 
     @Test
     @Order(2)
     public void testRowCount() {
-        assertEquals(2, dao.rowCount());
+        assertEquals(2, dao.count());
     }
 
     @Test
     @Order(3)
     public void testGetRowCount() {
-        assertEquals(2, dao.rowCount());
+        assertEquals(2, dao.count());
     }
 
     @Test
@@ -72,32 +73,57 @@ public class AccountDAOTest extends TestCase {
     }
 
     @Test
-    @Order(9)
-    public void testSetValueAt() {
-        dao.setValueAt("Description4", 0, 1);
-        assertEquals(dao.getValueAt(0,1), "Description4");
+    @Order(10)
+    public void testReadAll() {
+        ResultSet result = dao.readAll();
+        Assertions.assertNotEquals(null, result);
     }
 
     @Test
-    @Order(10)
+    @Order(11)
+    public void testRead_valid() {
+        ResultSet result = dao.read(0);
+        System.out.println(result);
+        Assertions.assertNotEquals(null, result);
+    }
+
+    @Test
+    @Order(12)
+    public void testRead_invalid() {
+        ResultSet result = dao.read(4);
+        Assertions.assertEquals(null, result);
+    }
+
+    @Test
+    @Order(13)
     public void testDeleteAccountByName() {
         assertTrue(dao.delete( "name", "Jean"));
     }
 
     @Test
-    @Order(11)
+    @Order(14)
     public void testUpdateDeleteAccountByDescription() {
         assertTrue(dao.delete( "description", "Description2"));
     }
 
     @Test
-    @Order(12)
+    @Order(15)
     public void testUpdateDeleteAccountWithInexistantName() {
         assertFalse(dao.delete( "name", "Paul"));
     }
 
+
     @Test
-    @Order(13)
+    @Order(16)
+    public void testReadAll_noConnexion() {
+        AccountDAO dao3 = new AccountDAO(null);
+        ResultSet result = dao3.readAll();
+        Assertions.assertEquals(null, result);
+    }
+
+
+    @Test
+    @Order(17)
     public void testGetValueAt_nullConnexion() {
         AccountDAO dao2 = new AccountDAO(null);
         String result = (String)dao2.getValueAt(0,0);
