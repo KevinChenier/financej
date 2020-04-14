@@ -17,7 +17,7 @@ import javax.swing.*;
 public class AccountDialog extends JDialog {
 
     private Connection conn = null;
-    private AccountDAO dataModel;
+    private AccountTableModel dataModel;
 
     /** Creates new form Account */
     public AccountDialog(java.awt.Frame parent, boolean modal) {
@@ -28,7 +28,7 @@ public class AccountDialog extends JDialog {
 
     public void SetDBConnection(Connection DBConn) {
         conn = DBConn;
-        dataModel = new AccountDAO(conn);
+        dataModel = new AccountTableModel(conn);
         AccountListTable.setModel(dataModel);
     }
 
