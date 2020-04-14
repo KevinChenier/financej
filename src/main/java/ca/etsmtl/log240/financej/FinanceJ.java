@@ -26,7 +26,7 @@ public class FinanceJ extends JFrame {
 
     private DerbyUtils derbyConnection;
     private AccountDialog AccountDialog;
-    private Category CategoryDialog;
+    private ca.etsmtl.log240.financej.CategoryDialog CategoryDialog;
     private Ledger LedgerDialog;
     private Reports ReportsDialog;
     private AccountTotalTableModel dataModel;
@@ -76,7 +76,7 @@ public class FinanceJ extends JFrame {
         AccountDialog.setVisible(false);
         AccountDialog.SetDBConnection(conn);
         
-        CategoryDialog = new Category(this, true);
+        CategoryDialog = new CategoryDialog(this, true);
         CategoryDialog.setVisible(false);
         CategoryDialog.SetDBConnection(conn);
         
