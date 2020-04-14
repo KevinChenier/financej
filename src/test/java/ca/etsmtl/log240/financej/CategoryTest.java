@@ -158,7 +158,7 @@ public class CategoryTest extends FinancejAbstractTest {
                 int initialRowCount = categoryTable.getRowCount();
                 final String NAME_INPUT = "Name";
                 final String BUDGET_INPUT = "10.00";
-                final String DESCRIPTION_INPUT = "ab.";
+                final String DESCRIPTION_INPUT = "ab";
                 fillValuesForTest(window, NAME_INPUT, DESCRIPTION_INPUT, BUDGET_INPUT);
                 window.getButton("Add Category").click();
                 // pas de nouvelle ligne dans la table
@@ -298,7 +298,8 @@ public class CategoryTest extends FinancejAbstractTest {
                 fillValuesForTest(window, NAME_INPUT, DESCRIPTION_INPUT, BUDGET_INPUT);
                 window.getButton("Add Category").click();
                 // delete category
-                window.getButton("Delete Category");
+                categoryTable.selectRowsWithText(0, "Name");
+                window.getButton("Delete Category").click();
                 assertEquals(initialRowCount, categoryTable.getRowCount());
               return window.getButton("Close").triggerClick();
             }

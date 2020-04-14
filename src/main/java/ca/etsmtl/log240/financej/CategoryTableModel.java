@@ -67,9 +67,19 @@ class CategoryTableModel extends AbstractTableModel {
 
     public int AddCategory(String Name, String Description, String budget) {
         float budgetFloat;
+
         if(budget.length() == 0) {
             return 1;
         }
+
+        if(Description.length() < 3) {
+            return 1;
+        }
+
+        if(Name.length() < 3) {
+            return 1;
+        }
+
         try{
             budgetFloat = Float.valueOf(budget.trim()).floatValue();
         } catch (Throwable e) {
