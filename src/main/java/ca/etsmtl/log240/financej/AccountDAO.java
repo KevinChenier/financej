@@ -58,7 +58,7 @@ public class AccountDAO implements DAO {
             s.execute(SQLString);
             return true;
         } catch (Throwable e) {
-            System.out.println(" . . . exception thrown: in setValueAt in AccountDAO.java");
+            System.out.println(" . . . exception thrown: in update in AccountDAO.java");
             e.printStackTrace();
             return false;
         }

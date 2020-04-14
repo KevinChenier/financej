@@ -24,7 +24,7 @@
     <proxy>
       <active>true</active>
       <protocol>http</protocol>
-      <host>proxy.logti.etsmtl.ca</host>
+      <host>proxy.logti.etsmtl.ca1</host>
       <port>3128</port>
       <nonProxyHosts>www.google.com|*.somewhere.com</nonProxyHosts>
     </proxy>

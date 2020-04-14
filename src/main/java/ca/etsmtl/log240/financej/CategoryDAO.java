@@ -14,13 +14,13 @@ public class CategoryDAO implements DAO {
     }
 
     public ResultSet read(int row) {
-        ResultSet AccountResult;
+        ResultSet CategoryResult;
         try {
             int CurrentRow = 0;
-            AccountResult = readAll();
-            while (AccountResult.next()) {
+            CategoryResult = readAll();
+            while (CategoryResult.next()) {
                 if (CurrentRow == row) {
-                    return AccountResult;
+                    return CategoryResult;
                 }
                 CurrentRow++;
             }
@@ -74,7 +74,7 @@ public class CategoryDAO implements DAO {
             s.execute(SQLString);
             return true;
         } catch (Throwable e) {
-            System.out.println(" . . . exception thrown: in setValueAt in CategoryDAO.java");
+            System.out.println(" . . . exception thrown: in update in CategoryDAO.java");
             e.printStackTrace();
             return false;
         }
