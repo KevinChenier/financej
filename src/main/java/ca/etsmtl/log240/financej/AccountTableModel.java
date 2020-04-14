@@ -2,9 +2,6 @@ package ca.etsmtl.log240.financej;
 
 import javax.swing.table.AbstractTableModel;
 import java.sql.Connection;
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
-import java.sql.Statement;
 
 class AccountTableModel extends AbstractTableModel {
 

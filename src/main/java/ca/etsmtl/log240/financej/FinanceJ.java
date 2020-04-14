@@ -17,16 +17,11 @@ import java.awt.event.*;
  * @author  rovitotv
  */
 public class FinanceJ extends JFrame {
-    // define the driver to use
-    // TODO: delete
-    private static String driver = "org.apache.derby.jdbc.EmbeddedDriver";
     // the database name
     // TODO: delete
     private static String dbName = "FinanceJDB";
     // define the Derby connection URL to use
-    // TODO: delete
-    private static String connectionURL = "jdbc:derby:" + dbName + ";create=true";
-    // TODO: delete
+
     private static Connection conn = null;
 
     private DerbyUtils derbyConnection;

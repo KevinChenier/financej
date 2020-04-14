@@ -21,7 +21,6 @@ public class AccountDAO {
             psInsert = conn.prepareStatement("insert into account(name, description) values(?,?)");
             psInsert.setString(1, Name);
             psInsert.setString(2, Description);
-
             psInsert.executeUpdate();
         } catch (Throwable e) {
             System.out.println(" . . . exception thrown: AddAccount");
@@ -54,12 +53,16 @@ public class AccountDAO {
         ResultSet AccountResult;
         Statement s;
         int CurrentRow = 0;
+        System.out.println("getValueAt");
         if (conn != null) {
+            System.out.println("not null");
             try {
                 s = conn.createStatement();
                 AccountResult = s.executeQuery("select * from account order by name");
                 while (AccountResult.next()) {
                     if (CurrentRow == row) {
+                        System.out.println(AccountResult.getString(1));
+                        System.out.println(AccountResult.getString(2));
                         if (col == 0) {
                             return AccountResult.getString(1);
                         } else if (col == 1) {
@@ -76,14 +79,13 @@ public class AccountDAO {
         return "";
     }
 
-    public void read(){}
 
     public boolean update(String fieldToUpdate, String valueToUpdate, String fieldWhere, String valueWhere){
         String SQLString;
-        String AccountName;
+
         try {
             Statement s = conn.createStatement();
-            SQLString = "update account set '" + fieldToUpdate + "' ='" + valueToUpdate + "' where '" + fieldWhere + "' = '" + valueWhere + "'";
+            SQLString = "update account set " + fieldToUpdate + " ='" + valueToUpdate + "' where " + fieldWhere + " LIKE '" + valueWhere + "'";
             System.out.println(SQLString);
             s.execute(SQLString);
             return true;
@@ -100,9 +102,9 @@ public class AccountDAO {
         if (conn != null) {
             try {
                 s = conn.createStatement();
-                SQLString = "DELETE FROM account WHERE "+field+" = '" + value + "'";
+                SQLString = "DELETE FROM account WHERE "+field+" LIKE '" + value + "'";
                 System.out.println(SQLString);
-                s.executeUpdate(SQLString);
+                s.execute(SQLString);
                 return true;
             } catch (Throwable e) {
                 System.out.println(" . . . exception thrown: in AccountTableModel DeleteAccount");
